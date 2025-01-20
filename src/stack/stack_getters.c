@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_node.c                                      :+:      :+:    :+:   */
+/*   stack_getters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 14:42:16 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/20 14:52:34 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/20 14:52:43 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/20 15:21:28 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-t_stack_node	*create_head(void)
+t_stack_node	*stack_last(t_stack_node *stack_elt)
 {
-	t_stack_node	*head;
-	
-	head = malloc(sizeof(t_stack_node));
-	if (!head)
+	t_stack_node	*tmp;
+
+	if (stack_elt->type == STACK_HEAD && !stack_elt->previous)
 		return (NULL);
-	head->first = head;
-	head->last = head;
-	head->next = NULL;
-	head->previous = NULL;
-	head->type = STACK_HEAD;
-	head->value = 0;
-	return (head);
+	tmp = stack_elt->previous;
+	while (tmp->type != STACK_HEAD)
+		tmp = tmp->next;
+	tmp = tmp->previous;
 }
 
-t_stack_node	*create_element(t_stack_node **parent, int value)
+t_stack_node	*stack_first(t_stack_node *stack_elt)
 {
-	t_stack_node	*elt;
+	t_stack_node	*tmp;
 
-	elt = malloc(sizeof(t_stack_node));
-	if (!elt)
+	if (stack_elt->type == STACK_HEAD && !stack_elt->next)
 		return (NULL);
-	elt->next = NULL;
-	elt->type = STACK_ELEMENT;
-	elt->value = value;
-	return (elt);
+	tmp = stack_elt;
+	while (tmp->type != STACK_HEAD)
+		tmp = tmp->next;
+	tmp = tmp->next;
 }

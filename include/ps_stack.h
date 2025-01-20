@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_stack.c                                      :+:      :+:    :+:   */
+/*   ps_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 10:38:42 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/20 14:40:44 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/20 15:53:00 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/20 15:53:21 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#ifndef PS_STACK_H
+# define PS_STACK_H
 
-t_stack_node	*parse_stack(
-	const char **stack_str,
-	size_t len,
-	t_stack_node *stack_b
-)
-{
-	t_stack_node	*stack_a;
-	t_stack_node	*tmp;
-	size_t			i;
-	
-	if (!init_stack(stack_a, stack_b))
-		return (NULL);
-	i = -1;
-	while (++i < len)
-	{
-		if ()
-	}
-}
+
+
+#endif

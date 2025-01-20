@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:38:52 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/20 14:52:19 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/20 16:21:57 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ typedef struct	s_stack_node
 	struct s_stack_node	*next;
 }	t_stack_node;
 
-t_stack_node	*create_head(void);
 t_stack_node	*init_stack(t_stack_node *stack_a, t_stack_node *stack_b);
-t_stack_node	*parse_stack(
-	const char **stack,
+t_stack_node	*append_to_stack(
+	const char *stack_elt,
+	t_stack_node *stack_a,
+	t_stack_node *stack_b
+);
+t_stack_node	*parse_stack_str(
+	const char **stack_str,
 	size_t len,
-	t_stack_node *b_stack
+	t_stack_node *stack_b
 );
 
 #endif

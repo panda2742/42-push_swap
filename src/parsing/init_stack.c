@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 12:00:57 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/20 14:46:40 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/20 15:45:57 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,15 @@ t_stack_node	*append_to_stack(
 	t_stack_node	*elt;
 	t_stack_node	*empty_cell;
 
-	elt = malloc(sizeof(t_stack_node));
+	value = ft_atoi(stack_elt);
+	elt = create_element(&stack_a, value);
 	if (!elt)
 		return (NULL);
-	empty_cell = malloc(sizeof(t_stack_node));
+	empty_cell = create_empty_cell(&stack_b);
 	if (!empty_cell)
 	{
 		free(elt);
 		return (NULL);
 	}
-	value = ft_atoi(stack_elt);
-	elt->value = value;
-	elt.
+	return (stack_a);
 }
