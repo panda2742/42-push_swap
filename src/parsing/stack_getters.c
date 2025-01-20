@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_error.c                                    :+:      :+:    :+:   */
+/*   stack_getters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 01:04:18 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/20 10:38:27 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/20 14:52:43 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/20 15:05:45 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	display_error(void)
+t_stack_node	*stack_last(t_stack_node *stack_elt)
 {
-	return ((void)ft_printf("Error\n"));
+	t_stack_node	*tmp;
+
+	if (stack_elt->type == STACK_HEAD && !stack_elt->previous)
+		return (NULL);
+	tmp = stack_elt->previous;
+	while (stack_elt->type != STACK_HEAD)
+	{
+		tmp = stack_elt;
+	}
 }

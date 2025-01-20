@@ -6,15 +6,20 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/17 15:37:49 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/20 10:55:21 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 static enum e_wall_status	_check_stack(
-	const char **stack, size_t len, enum e_wall_status status);
-static int	_check_stack_element(const char *stack_elt);
+								const char **stack,
+								size_t len,
+								enum e_wall_status status
+								);
+static int					_check_stack_element(const char *stack_elt);
+static int					_check_value(int value, int sign, char c);
+static int					_check_doubles(const char **stack, size_t len);
 
 enum e_wall_status	check_argv(int ac, char **av, char **stack, size_t *len)
 {
@@ -57,6 +62,12 @@ static enum e_wall_status	_check_stack(
 			return (WALL_ERROR);
 		}
 	}
+	if (!_check_doubles(stack, len))
+	{
+		if (status == WALL_HEAPED)
+			return (WALL_ERROR_HEAPED);
+		return (WALL_ERROR);
+	}
 	return (status);
 }
 
@@ -69,7 +80,7 @@ static int	_check_stack_element(const char *stack_elt)
 	char	c;
 
 	i = -1;
-	sign = 0;
+	sign = 1;
 	if (stack_elt[0] && stack_elt[0] == '-')
 	{
 		sign = -1;
@@ -82,9 +93,34 @@ static int	_check_stack_element(const char *stack_elt)
 		c = stack_elt[i];
 		if (!ft_isdigit(c))
 			return (0);
-		if (caca)
+		if (!_check_value(value, sign, c))
 			return (0);
 		value = value * 10 + c - '0';
+	}
+	return (1);
+}
+
+static int	_check_value(int value, int sign, char c)
+{
+	if (sign == 1)
+		return ((value * 10 + c - '0') / 10 == value);
+	return ((-value * 10 - (c - '0')) / 10 == -value);
+}
+
+static int	_check_doubles(const char **stack, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	i = -1;
+	while (++i < len)
+	{
+		j = i;
+		while (++j < len)
+		{
+			if (ft_strncmp(stack[i], stack[j], ft_strlen(stack[0])) == 0)
+				return (0);
+		}
 	}
 	return (1);
 }

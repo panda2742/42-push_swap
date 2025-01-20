@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/17 01:17:34 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/20 12:01:49 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,10 @@ MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
 override	SRC_IO		:=	display_error
+override	SRC_PARSING	:=	parse_stack stack_init
 override	SRC_WALL	:=	check_argv
 override	SRCS		:=	$(addprefix io/,$(SRC_IO)) \
+							$(addprefix parsing/,$(SRC_PARSING)) \
 							$(addprefix wall/,$(SRC_WALL)) \
 							main
 override	SRC			:=	$(addprefix $(SRC_DIR),$(addsuffix .c,$(SRCS)))
