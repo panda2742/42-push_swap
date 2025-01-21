@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:04:46 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/21 20:07:06 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/21 23:21:46 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct	s_clist_node
 {
 	t_node_type			type;
 	int					value;
-	struct s_clist_node	*previous;
 	struct s_clist_node	*next;
 }	t_clist_node;
 

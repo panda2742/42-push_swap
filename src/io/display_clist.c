@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:14:04 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/21 20:26:10 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/21 23:25:48 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ void	display_clist(t_clist_node *head)
 
 	display_clist_node(head);
 	element = head->next;
-	while (element->type != NODE_HEAD)
+	int i = 0;
+	while (element->type != NODE_HEAD && i < 10)
 	{
 		display_clist_node(element);
 		element = element->next;
+		i++;
 	}
 }
 
@@ -34,13 +36,9 @@ void	display_clist_node(t_clist_node *element)
 		ft_printf("x");
 	else if (element->type == NODE_HEAD)
 		ft_printf("HEAD");
-	ft_printf("\t%p - %p\n", element->previous, element->next);
+	ft_printf("\t%p\n", element->next);
 	if (element->next->type != NODE_HEAD)
 	{
-		if (element->next->previous == element)
-			ft_printf("   ⋀\t");
-		else
-			ft_printf("   ❌\t");
-		ft_printf("⋁\n");
+		ft_printf("\t\t⋁\n");
 	}
 }
