@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/21 15:39:23 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/21 16:54:50 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,11 @@ NAME	= push_swap
 MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
-override	SRC_IO		:=	display_error
+override	SRC_CLIST	:=	clist_inits
+override	SRC_IO		:=	display_clist display_error
 override	SRC_WALL	:=	check_argv
-override	SRCS		:=	$(addprefix io/,$(SRC_IO)) \
+override	SRCS		:=	$(addprefix clist/,$(SRC_CLIST)) \
+							$(addprefix io/,$(SRC_IO)) \
 							$(addprefix wall/,$(SRC_WALL)) \
 							main
 override	SRC			:=	$(addprefix $(SRC_DIR),$(addsuffix .c,$(SRCS)))

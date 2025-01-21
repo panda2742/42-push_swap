@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/21 15:47:46 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/21 15:59:18 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static t_wall_status	_check_stack(
 								const char **stack,
-								size_t len,
+								size_t stack_size,
 								t_wall_status status
 								);
 static int				_check_stack_element(const char *stack_elt);
 static int				_check_value(int value, int sign, char c);
-static int				_check_doubles(const char **stack, size_t len);
+static int				_check_doubles(const char **stack, size_t stack_size);
 
-t_wall_status	check_argv(int ac, char **av, char **stack, size_t *len)
+t_wall_status	check_argv(int ac, char **av, char **stack, size_t *stack_size)
 {
 	t_wall_status	status;
 
@@ -34,26 +34,26 @@ t_wall_status	check_argv(int ac, char **av, char **stack, size_t *len)
 		stack = ft_split(av[0], ' ');
 		if (!stack)
 			return (WALL_ERROR);
-		while (stack[*len])
-			*len += 1;
+		while (stack[*stack_size])
+			*stack_size += 1;
 		status = WALL_HEAPED;
 	}
 	else
 	{
 		stack = av;
-		*len = ac;
+		*stack_size = ac;
 		status = WALL_STACKED;
 	}
-	return (_check_stack((const char **)stack, *len, status));
+	return (_check_stack((const char **)stack, *stack_size, status));
 }
 
 static t_wall_status	_check_stack(
-	const char **stack, size_t len, t_wall_status status)
+	const char **stack, size_t stack_size, t_wall_status status)
 {
 	size_t	i;
 
 	i = -1;
-	while (++i < len)
+	while (++i < stack_size)
 	{
 		if (!_check_stack_element(stack[i]))
 		{
@@ -62,7 +62,7 @@ static t_wall_status	_check_stack(
 			return (WALL_ERROR);
 		}
 	}
-	if (!_check_doubles(stack, len))
+	if (!_check_doubles(stack, stack_size))
 	{
 		if (status == WALL_HEAPED)
 			return (WALL_ERROR_HEAPED);
@@ -107,16 +107,16 @@ static int	_check_value(int value, int sign, char c)
 	return ((-value * 10 - (c - '0')) / 10 == -value);
 }
 
-static int	_check_doubles(const char **stack, size_t len)
+static int	_check_doubles(const char **stack, size_t stack_size)
 {
 	size_t	i;
 	size_t	j;
 
 	i = -1;
-	while (++i < len)
+	while (++i < stack_size)
 	{
 		j = i;
-		while (++j < len)
+		while (++j < stack_size)
 		{
 			if (ft_atoi(stack[i]) == ft_atoi(stack[j]))
 				return (0);
