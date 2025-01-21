@@ -6,63 +6,58 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/21 15:59:18 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/21 19:58:36 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static t_wall_status	_check_stack(
-								const char **stack,
-								size_t stack_size,
-								t_wall_status status
-								);
+static t_wall_status	_check_stack(t_env *env, t_wall_status status);
 static int				_check_stack_element(const char *stack_elt);
 static int				_check_value(int value, int sign, char c);
-static int				_check_doubles(const char **stack, size_t stack_size);
+static int				_check_doubles(t_env *env);
 
-t_wall_status	check_argv(int ac, char **av, char **stack, size_t *stack_size)
+t_wall_status	check_argv(t_env *env)
 {
 	t_wall_status	status;
 
-	ac--;
-	if (ac == 0)
+	env->argc -= 1;
+	if (env->argc == 0)
 		return (WALL_AVOID);
-	av++;
-	if (ac == 1)
+	env->argv += 1;
+	if (env->argc == 1)
 	{
-		stack = ft_split(av[0], ' ');
-		if (!stack)
+		env->stack_str = ft_split(env->argv[0], ' ');
+		if (!env->stack_str)
 			return (WALL_ERROR);
-		while (stack[*stack_size])
-			*stack_size += 1;
+		while (env->stack_str[env->stack_size])
+			env->stack_size += 1;
 		status = WALL_HEAPED;
 	}
 	else
 	{
-		stack = av;
-		*stack_size = ac;
+		env->stack_str = env->argv;
+		env->stack_size = env->argc;
 		status = WALL_STACKED;
 	}
-	return (_check_stack((const char **)stack, *stack_size, status));
+	return (_check_stack(env, status));
 }
 
-static t_wall_status	_check_stack(
-	const char **stack, size_t stack_size, t_wall_status status)
+static t_wall_status	_check_stack(t_env *env, t_wall_status status)
 {
 	size_t	i;
 
 	i = -1;
-	while (++i < stack_size)
+	while (++i < env->stack_size)
 	{
-		if (!_check_stack_element(stack[i]))
+		if (!_check_stack_element(env->stack_str[i]))
 		{
 			if (status == WALL_HEAPED)
 				return (WALL_ERROR_HEAPED);
 			return (WALL_ERROR);
 		}
 	}
-	if (!_check_doubles(stack, stack_size))
+	if (!_check_doubles(env))
 	{
 		if (status == WALL_HEAPED)
 			return (WALL_ERROR_HEAPED);
@@ -107,18 +102,18 @@ static int	_check_value(int value, int sign, char c)
 	return ((-value * 10 - (c - '0')) / 10 == -value);
 }
 
-static int	_check_doubles(const char **stack, size_t stack_size)
+static int	_check_doubles(t_env *env)
 {
 	size_t	i;
 	size_t	j;
 
 	i = -1;
-	while (++i < stack_size)
+	while (++i < env->stack_size)
 	{
 		j = i;
-		while (++j < stack_size)
+		while (++j < env->stack_size)
 		{
-			if (ft_atoi(stack[i]) == ft_atoi(stack[j]))
+			if (ft_atoi(env->stack_str[i]) == ft_atoi(env->stack_str[j]))
 				return (0);
 		}
 	}

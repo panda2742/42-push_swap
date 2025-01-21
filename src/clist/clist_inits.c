@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:50:27 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/21 18:01:06 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/21 20:08:22 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_clist_node	*create_clist(t_env *env, int is_empty)
 			node = node->next;
 			continue;
 		}
-		display_clist(head);
 		create_node(NODE_ELEMENT, ft_atoi(env->stack_str[i]), node);
 		node = node->next;
 	}
