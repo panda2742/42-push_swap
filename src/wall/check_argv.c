@@ -6,24 +6,24 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/20 10:55:21 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/21 15:47:46 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static enum e_wall_status	_check_stack(
+static t_wall_status	_check_stack(
 								const char **stack,
 								size_t len,
-								enum e_wall_status status
+								t_wall_status status
 								);
-static int					_check_stack_element(const char *stack_elt);
-static int					_check_value(int value, int sign, char c);
-static int					_check_doubles(const char **stack, size_t len);
+static int				_check_stack_element(const char *stack_elt);
+static int				_check_value(int value, int sign, char c);
+static int				_check_doubles(const char **stack, size_t len);
 
-enum e_wall_status	check_argv(int ac, char **av, char **stack, size_t *len)
+t_wall_status	check_argv(int ac, char **av, char **stack, size_t *len)
 {
-	enum e_wall_status	status;
+	t_wall_status	status;
 
 	ac--;
 	if (ac == 0)
@@ -47,8 +47,8 @@ enum e_wall_status	check_argv(int ac, char **av, char **stack, size_t *len)
 	return (_check_stack((const char **)stack, *len, status));
 }
 
-static enum e_wall_status	_check_stack(
-	const char **stack, size_t len, enum e_wall_status status)
+static t_wall_status	_check_stack(
+	const char **stack, size_t len, t_wall_status status)
 {
 	size_t	i;
 
@@ -118,7 +118,7 @@ static int	_check_doubles(const char **stack, size_t len)
 		j = i;
 		while (++j < len)
 		{
-			if (ft_strncmp(stack[i], stack[j], ft_strlen(stack[0])) == 0)
+			if (ft_atoi(stack[i]) == ft_atoi(stack[j]))
 				return (0);
 		}
 	}

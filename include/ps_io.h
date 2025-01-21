@@ -6,12 +6,13 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 01:12:35 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/17 01:13:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/21 15:13:54 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_IO_H
 # define PS_IO_H
+
 
 void	display_error(void);
 

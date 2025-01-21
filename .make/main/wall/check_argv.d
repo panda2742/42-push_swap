@@ -9,8 +9,7 @@
   src/wall/../../include/../libft/include/ft_printf.h \
   src/wall/../../include/../libft/include/ft_to.h \
   src/wall/../../include/../libft/include/get_next_line.h \
-  src/wall/../../include/ps_io.h src/wall/../../include/ps_parsing.h \
-  src/wall/../../include/ps_wall.h
+  src/wall/../../include/ps_io.h src/wall/../../include/ps_wall.h
 
 src/wall/../../include/push_swap.h:
 
@@ -33,7 +32,5 @@ src/wall/../../include/../libft/include/ft_to.h:
 src/wall/../../include/../libft/include/get_next_line.h:
 
 src/wall/../../include/ps_io.h:
-
-src/wall/../../include/ps_parsing.h:
 
 src/wall/../../include/ps_wall.h:
