@@ -6,44 +6,44 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/21 19:58:36 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/22 10:40:12 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static t_wall_status	_check_stack(t_env *env, t_wall_status status);
+static t_wall_status	_check_stack(t_env *env);
 static int				_check_stack_element(const char *stack_elt);
 static int				_check_value(int value, int sign, char c);
 static int				_check_doubles(t_env *env);
 
 t_wall_status	check_argv(t_env *env)
 {
-	t_wall_status	status;
-
 	env->argc -= 1;
 	if (env->argc == 0)
 		return (WALL_AVOID);
 	env->argv += 1;
-	if (env->argc == 1)
+	if (env->argc == 1 && ft_strchr(env->argv[0], ' '))
 	{
 		env->stack_str = ft_split(env->argv[0], ' ');
 		if (!env->stack_str)
 			return (WALL_ERROR);
 		while (env->stack_str[env->stack_size])
 			env->stack_size += 1;
-		status = WALL_HEAPED;
+		env->wall_status = WALL_OK;
+		env->is_in_stack = 0;
 	}
 	else
 	{
 		env->stack_str = env->argv;
 		env->stack_size = env->argc;
-		status = WALL_STACKED;
+		env->wall_status = WALL_OK;
+		env->is_in_stack = 1;
 	}
-	return (_check_stack(env, status));
+	return (_check_stack(env));
 }
 
-static t_wall_status	_check_stack(t_env *env, t_wall_status status)
+static t_wall_status	_check_stack(t_env *env)
 {
 	size_t	i;
 
@@ -51,19 +51,11 @@ static t_wall_status	_check_stack(t_env *env, t_wall_status status)
 	while (++i < env->stack_size)
 	{
 		if (!_check_stack_element(env->stack_str[i]))
-		{
-			if (status == WALL_HEAPED)
-				return (WALL_ERROR_HEAPED);
 			return (WALL_ERROR);
-		}
 	}
 	if (!_check_doubles(env))
-	{
-		if (status == WALL_HEAPED)
-			return (WALL_ERROR_HEAPED);
 		return (WALL_ERROR);
-	}
-	return (status);
+	return (env->wall_status);
 }
 
 static int	_check_stack_element(const char *stack_elt)

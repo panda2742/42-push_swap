@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:04:46 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/21 23:21:46 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/22 10:37:46 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ typedef enum	e_wall_status
 {
 	WALL_ERROR = 0,
 	WALL_AVOID = 1,
-	WALL_HEAPED = 2,
-	WALL_STACKED = 3,
-	WALL_ERROR_HEAPED = 4,
+	WALL_OK = 2,
 }	t_wall_status;
 
 typedef struct s_env
@@ -43,6 +41,7 @@ typedef struct s_env
 	int 			argc;
 	char			**argv;
 	char			**stack_str;
+	int				is_in_stack;
 	size_t			stack_size;
 	t_wall_status	wall_status;
 	t_clist_node	**stack_a;

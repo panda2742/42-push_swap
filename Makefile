@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/21 16:54:50 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/22 10:19:58 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME	= push_swap
 MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
-override	SRC_CLIST	:=	clist_inits
-override	SRC_IO		:=	display_clist display_error
+override	SRC_CLIST	:=	clist_deleters clist_inits
+override	SRC_IO		:=	display_clist display_env display_error
 override	SRC_WALL	:=	check_argv
 override	SRCS		:=	$(addprefix clist/,$(SRC_CLIST)) \
 							$(addprefix io/,$(SRC_IO)) \
@@ -30,7 +30,7 @@ override	DIRS		:=	$(sort $(dir $(NAME) $(OBJ) $(DEPS)))
 override	LIBFT		:=	libft/
 
 OFLAGS		:=	-O3
-CFLAGS		:=	-Wall -Wextra -Werror -MMD -MP
+CFLAGS		:=	-Wall -Wextra -Werror -g3 -MMD -MP
 MAKEFLAGS	:=	--no-print-directory
 RMFLAGS		:=	-rf
 override	GCC		:=	cc
