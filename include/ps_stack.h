@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_defines.h                                       :+:      :+:    :+:   */
+/*   ps_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 20:04:46 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 15:19:22 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/21 15:51:51 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/22 15:19:53 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_DEFINES_H
-# define PS_DEFINES_H
+#ifndef PS_STACK_H
+# define PS_STACK_H
 
 # include <stdlib.h>
+# include "ps_defines.h"
+# include "ps_wall.h"
 
-typedef enum e_wall_status
-{
-	WALL_ERROR = 0,
-	WALL_AVOID = 1,
-	WALL_OK = 2,
-}	t_wall_status;
-
-typedef struct s_env
-{
-	int				argc;
-	char			**argv;
-	int				is_in_stackmem;
-	t_wall_status	wall_status;
-	char			**stack_str;
-	size_t			stack_size;
-	int				*stack_a;
-	int				*stack_b;
-	size_t			a_size;
-	size_t			b_size;
-	size_t			a_head;
-	size_t			b_head;
-}	t_env;
+int		*init_stack(t_env *env, int is_empty);
+void	free_stack_str(char **stack_str, size_t size);
 
 #endif

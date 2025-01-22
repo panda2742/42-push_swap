@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 10:40:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/22 13:17:33 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ t_wall_status	check_argv(t_env *env)
 		while (env->stack_str[env->stack_size])
 			env->stack_size += 1;
 		env->wall_status = WALL_OK;
-		env->is_in_stack = 0;
+		env->is_in_stackmem = 0;
 	}
 	else
 	{
 		env->stack_str = env->argv;
 		env->stack_size = env->argc;
 		env->wall_status = WALL_OK;
-		env->is_in_stack = 1;
+		env->is_in_stackmem = 1;
 	}
 	return (_check_stack(env));
 }

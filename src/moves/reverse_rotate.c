@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clist_deleters.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 09:32:18 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 10:31:25 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/22 15:09:10 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/22 15:18:29 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	free_clist(t_clist_node *stack)
+void	reverse_rotate(t_env *env, char c, int to_print)
 {
-	t_clist_node	*tmp;
+	size_t	*head;
+	size_t	size;
 
-	stack = stack->next;
-	while (stack->type != NODE_HEAD)
+	if (c == 'r')
 	{
-		tmp = stack->next;
-		free(stack);
-		stack = tmp;
+		ft_printf("rrr\n");
+		reverse_rotate(env, 'a', 0);
+		reverse_rotate(env, 'b', 0);
+		return ;
 	}
-	free(stack);
-}
-
-void	free_stack_str(char **stack_str, size_t stack_size)
-{
-	size_t	i;
-
-	i = -1;
-	while (++i < stack_size)
-		free(stack_str[i]);
-	free(stack_str);
+	if (to_print)
+		ft_printf("rr%c\n", c);
+	head = &env->a_head;
+	size = env->a_size;
+	if (size < 2)
+		return ;
+	if (c == 'b')
+	{
+		head = &env->b_head;
+		size = env->b_size;
+	}
+	if (*head == 0)
+		*head = *head - 1;
+	else
+		*head -= 1;
 }

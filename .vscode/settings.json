@@ -2,6 +2,7 @@
 	"files.associations": {
 		"push_swap.h": "c",
 		"ps_wall.h": "c",
-		"ps_clist.h": "c"
+		"ps_clist.h": "c",
+		"ps_moves.h": "c"
 	}
 }
