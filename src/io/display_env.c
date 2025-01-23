@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:16:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 00:29:42 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 09:40:34 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,38 @@ void	display_env(t_env *env)
 	ft_printf("| stack_a: %p\n", env->stack_a);
 	ft_printf("| a_size: %d\n", env->a_size);
 	ft_printf("| a_head: %d\n", env->a_head);
-	display_stack(env->stack_a, env->a_size, env->a_head);
+	display_stack(env, 'a');
 	ft_printf("| stack_b: %p\n", env->stack_b);
 	ft_printf("| b_size: %d\n", env->b_size);
 	ft_printf("| b_head: %d\n", env->b_head);
-	display_stack(env->stack_b, env->b_size, env->b_head);
+	display_stack(env, 'b');
 	ft_printf("---------------------------------\n");
 	print_id++;
 }
 
-void	display_stack(int *stack, size_t stack_size, size_t head)
+void	display_stack(t_env *env, char c)
 {
 	size_t	iter;
+	int		*stack;
+	size_t	stack_size;
+	size_t	head;
 
+	stack = env->stack_a;
+	stack_size = env->a_size;
+	head = env->a_head;
+	if (c == 'b')
+	{
+		stack = env->stack_b;
+		stack_size = env->b_size;
+		head = env->b_head;
+	}
 	iter = -1;
 	while (++iter < stack_size)
 	{
 		if (iter == head)
 			ft_printf("[%d]", stack[iter]);
 		else
-			ft_printf("%d", stack[iter]);
+			ft_printf(" %d ", stack[iter]);
 		if (iter + 1 < stack_size)
 			ft_printf(" ");
 	}
