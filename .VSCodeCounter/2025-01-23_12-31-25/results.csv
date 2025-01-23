@@ -1,9 +1,0 @@
-"filename", "language", "C", "C++", "comment", "blank", "total"
-"/home/ehosta/Documents/push_swap/include/ps_defines.h", "C++", 0, 25, 11, 5, 41
-"/home/ehosta/Documents/push_swap/include/ps_instructions.h", "C++", 0, 0, 11, 2, 13
-"/home/ehosta/Documents/push_swap/include/ps_io.h", "C++", 0, 7, 11, 4, 22
-"/home/ehosta/Documents/push_swap/include/ps_moves.h", "C", 21, 0, 11, 5, 37
-"/home/ehosta/Documents/push_swap/include/ps_stack.h", "C++", 0, 8, 11, 4, 23
-"/home/ehosta/Documents/push_swap/include/ps_wall.h", "C", 5, 0, 11, 4, 20
-"/home/ehosta/Documents/push_swap/include/push_swap.h", "C", 13, 0, 11, 4, 28
-"Total", "-", 39, 40, 77, 28, 184

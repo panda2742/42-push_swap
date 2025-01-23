@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 13:13:23 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 15:40:20 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "ps_instructions.h"
 # include "ps_io.h"
 # include "ps_moves.h"
+# include "ps_sorting.h"
 # include "ps_stack.h"
 # include "ps_wall.h"
 

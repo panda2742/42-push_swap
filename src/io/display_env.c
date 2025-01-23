@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:16:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 09:40:34 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 15:41:20 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ void	display_stack(t_env *env, char c)
 		stack = env->stack_b;
 		stack_size = env->b_size;
 		head = env->b_head;
+	}
+	if (c == 's')
+	{
+		stack = env->sorted_stack;
+		stack_size = env->stack_size;
+		head = 0;
 	}
 	iter = -1;
 	while (++iter < stack_size)

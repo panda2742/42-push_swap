@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:50:27 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 14:21:03 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 15:29:25 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@ int	*init_stack(t_env *env, int is_empty)
 	i = -1;
 	while (++i < env->stack_size)
 		tab[i] = ft_atoi(env->stack_str[i]);
+	return (tab);
+}
+
+int	*dup_stack(int *stack, size_t stack_size)
+{
+	int		*tab;
+	size_t	i;
+
+	tab = malloc(stack_size * sizeof(int));
+	if (!tab)
+		return (NULL);
+	i = -1;
+	while (++i < stack_size)
+		tab[i] = stack[i];
 	return (tab);
 }
 

@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/23 13:25:27 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/23 15:39:54 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,13 @@ override	SRC_INSTR	:=	px rrx rx sx
 override	SRC_IO		:=	display_env display_error
 override	SRC_MOVES	:=	extract_from_stack push_to_stack push \
 							reverse_rotate rotate swap
+override	SRC_SORTING	:=	insertion_sort
 override	SRC_STACK	:=	stack_manager
 override	SRC_WALL	:=	check_argv
 override	SRCS		:=	$(addprefix instructions/,$(SRC_INSTR)) \
 							$(addprefix io/,$(SRC_IO)) \
 							$(addprefix moves/,$(SRC_MOVES)) \
+							$(addprefix sorting/,$(SRC_SORTING)) \
 							$(addprefix stack/,$(SRC_STACK)) \
 							$(addprefix wall/,$(SRC_WALL)) \
 							main
