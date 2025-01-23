@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insertion_sort.c                                   :+:      :+:    :+:   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:36:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 15:42:46 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 18:19:11 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	insertion_sort(int *list, int length)
+void	selection_sort(int *list, size_t length)
 {
-	int	i;
-	int	j;
-	int	key;
+    size_t  i;
+    size_t  j;
+    size_t  min;
+    int     tmp;
 
-	i = 0;
-	while (++i < length)
-	{
-		key = list[i];
-		j = i - 1;
-		while (list[j] > key && j >= 0)
-		{
-			list[j + 1] = list[j];
-			j--;
-		}
-		list[j + 1] = key;
-	}
+    i = -1;
+    while (++i < length - 1)
+    {
+        min = i;
+        j = i;
+        while (++j < length)
+        {
+            if (list[j] < list[min])
+                min = j;
+        }
+        if (min != i)
+        {
+            tmp = list[min];
+            list[min] = list[i];
+            list[i] = tmp;
+        }
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 15:41:57 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 18:16:51 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	_wall_handler(t_env *env);
 static void	_stack_handler(t_env *env);
 static void	_exit_program(t_env *env, int free_stacks, int exit_status);
+static void	_sort_handler(t_env *env);
 
 int	main(int argc, char **argv)
 {
@@ -35,6 +36,7 @@ int	main(int argc, char **argv)
 	_wall_handler(env);
 	env->a_size = env->stack_size;
 	_stack_handler(env);
+	_sort_handler(env);
 	_exit_program(env, 1, -1);
 	return (0);
 }
@@ -57,8 +59,7 @@ static void	_stack_handler(t_env *env)
 	env->stack_a = init_stack(env, 0);
 	env->stack_b = init_stack(env, 1);
 	env->sorted_stack = dup_stack(env->stack_a, env->stack_size);
-	insertion_sort(env->sorted_stack, env->stack_size);
-	display_stack(env, 's');
+	selection_sort(env->sorted_stack, env->stack_size);
 }
 
 static void	_exit_program(t_env *env, int free_stacks, int exit_status)
@@ -75,4 +76,9 @@ static void	_exit_program(t_env *env, int free_stacks, int exit_status)
 	free(env);
 	if (exit_status != -1)
 		exit(exit_status);
+}
+
+static void	_sort_handler(t_env *env)
+{
+	stack_sorting(env);
 }
