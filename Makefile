@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/22 19:48:49 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/23 01:03:13 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
 override	SRC_IO		:=	display_env display_error
-override	SRC_MOVES	:=	push reverse_rotate rotate swap
+override	SRC_MOVES	:=	push_utils push reverse_rotate rotate swap
 override	SRC_STACK	:=	stack_manager
 override	SRC_WALL	:=	check_argv
 override	SRCS		:=	$(addprefix io/,$(SRC_IO)) \

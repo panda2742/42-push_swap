@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 19:56:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 00:49:34 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,20 @@ static void	_stack_handler(t_env *env)
 	env->stack_a = init_stack(env, 0);
 	env->stack_b = init_stack(env, 1);
 	display_stack(env->stack_a, env->a_size, env->a_head);
-	display_stack(env->stack_b, env->b_size, env->b_head);
+	rotate(env, 'a', 1);
+	display_stack(env->stack_a, env->a_size, env->a_head);
 	push(env, 'a', 1);
 	display_stack(env->stack_a, env->a_size, env->a_head);
-	display_stack(env->stack_b, env->b_size, env->b_head);
+	rotate(env, 'a', 1);
+	display_stack(env->stack_a, env->a_size, env->a_head);
+	push(env, 'a', 1);
+	display_stack(env->stack_a, env->a_size, env->a_head);
+	push(env, 'a', 1);
+	display_stack(env->stack_a, env->a_size, env->a_head);
+	push(env, 'a', 1);
+	display_stack(env->stack_a, env->a_size, env->a_head);
+	push(env, 'a', 1);
+	display_stack(env->stack_a, env->a_size, env->a_head);
 }
 
 static void	_exit_program(t_env *env, int free_stacks, int exit_status)

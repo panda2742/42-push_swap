@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:16:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 19:56:04 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/23 00:29:42 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	display_stack(int *stack, size_t stack_size, size_t head)
 	iter = -1;
 	while (++iter < stack_size)
 	{
-		ft_printf("%d", stack[head]);
+		if (iter == head)
+			ft_printf("[%d]", stack[iter]);
+		else
+			ft_printf("%d", stack[iter]);
 		if (iter + 1 < stack_size)
-			ft_printf(" | ");
-		head++;
-		if (head == stack_size)
-			head = 0;
+			ft_printf(" ");
 	}
 	ft_printf("\n");
 }
