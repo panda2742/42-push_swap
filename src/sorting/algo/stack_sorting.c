@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:02:55 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 18:16:51 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 00:26:24 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ static int	_is_sorted(t_env *env);
 
 void	stack_sorting(t_env *env)
 {
-	display_stack(env, 'a');
-	ft_printf("sorted: %d\n", _is_sorted(env));
-	selection_sort(env->stack_a, env->a_size);
-	display_stack(env, 'a');
-	ft_printf("sorted: %d\n", _is_sorted(env));
+	if (_is_sorted(env))
+		return ;
+	if (env->a_size >= 3)
+		sort_3(env);
 	(void)env;
 }
 

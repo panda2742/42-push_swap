@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:09:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 15:18:29 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 00:11:07 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	reverse_rotate(t_env *env, char c, int to_print)
 		size = env->b_size;
 	}
 	if (*head == 0)
-		*head = *head - 1;
+		*head = size - 1;
 	else
 		*head -= 1;
 }
