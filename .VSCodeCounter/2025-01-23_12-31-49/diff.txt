@@ -1,0 +1,108 @@
+Date : 2025-01-23 12:31:49
+Directory : /home/ehosta/Documents/push_swap
+Total : 67 files,  1308 codes, 811 comments, 315 blanks, all 2434 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C        |         50 |        970 |        550 |        216 |      1,736 |
+| Makefile |          3 |        184 |         33 |         28 |        245 |
+| C++      |         13 |        150 |        228 |         69 |        447 |
+| Markdown |          1 |          4 |          0 |          2 |          6 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                        |         67 |      1,308 |        811 |        315 |      2,434 |
+| . (Files)                                                                |          1 |         51 |         11 |         14 |         76 |
+| include                                                                  |          7 |         79 |         77 |         28 |        184 |
+| libft                                                                    |         59 |      1,178 |        723 |        273 |      2,174 |
+| libft (Files)                                                            |          3 |        137 |         22 |         16 |        175 |
+| libft/include                                                            |          9 |        110 |        184 |         54 |        348 |
+| libft/src                                                                |         47 |        931 |        517 |        203 |      1,651 |
+| libft/src/fd                                                             |          6 |         69 |         66 |         21 |        156 |
+| libft/src/get_next_line                                                  |          1 |         87 |         11 |         11 |        109 |
+| libft/src/is                                                             |          5 |         25 |         55 |         15 |         95 |
+| libft/src/lst                                                            |          9 |        113 |         99 |         31 |        243 |
+| libft/src/mem                                                            |          7 |        102 |         77 |         28 |        207 |
+| libft/src/printf                                                         |          1 |         90 |         11 |         12 |        113 |
+| libft/src/str                                                            |         14 |        342 |        154 |         66 |        562 |
+| libft/src/to                                                             |          4 |        103 |         44 |         19 |        166 |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                 | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /home/ehosta/Documents/push_swap/Makefile                                | Makefile |         51 |         11 |         14 |         76 |
+| /home/ehosta/Documents/push_swap/include/ps_defines.h                    | C++      |         25 |         11 |          5 |         41 |
+| /home/ehosta/Documents/push_swap/include/ps_instructions.h               | C++      |          0 |         11 |          2 |         13 |
+| /home/ehosta/Documents/push_swap/include/ps_io.h                         | C++      |          7 |         11 |          4 |         22 |
+| /home/ehosta/Documents/push_swap/include/ps_moves.h                      | C        |         21 |         11 |          5 |         37 |
+| /home/ehosta/Documents/push_swap/include/ps_stack.h                      | C++      |          8 |         11 |          4 |         23 |
+| /home/ehosta/Documents/push_swap/include/ps_wall.h                       | C        |          5 |         11 |          4 |         20 |
+| /home/ehosta/Documents/push_swap/include/push_swap.h                     | C        |         13 |         11 |          4 |         28 |
+| /home/ehosta/Documents/push_swap/libft/Makefile                          | Makefile |         37 |         11 |         10 |         58 |
+| /home/ehosta/Documents/push_swap/libft/README.md                         | Markdown |          4 |          0 |          2 |          6 |
+| /home/ehosta/Documents/push_swap/libft/include/ft_fd.h                   | C++      |         11 |         61 |         10 |         82 |
+| /home/ehosta/Documents/push_swap/libft/include/ft_is.h                   | C++      |          8 |         38 |          8 |         54 |
+| /home/ehosta/Documents/push_swap/libft/include/ft_lst.h                  | C++      |         18 |         11 |          6 |         35 |
+| /home/ehosta/Documents/push_swap/libft/include/ft_mem.h                  | C++      |         11 |         11 |          5 |         27 |
+| /home/ehosta/Documents/push_swap/libft/include/ft_printf.h               | C++      |          9 |         11 |          6 |         26 |
+| /home/ehosta/Documents/push_swap/libft/include/ft_str.h                  | C++      |         19 |         11 |          5 |         35 |
+| /home/ehosta/Documents/push_swap/libft/include/ft_to.h                   | C++      |         11 |         11 |          5 |         27 |
+| /home/ehosta/Documents/push_swap/libft/include/get_next_line.h           | C++      |         12 |         19 |          5 |         36 |
+| /home/ehosta/Documents/push_swap/libft/include/libft.h                   | C++      |         11 |         11 |          4 |         26 |
+| /home/ehosta/Documents/push_swap/libft/src/fd/ft_putchar_fd.c            | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/fd/ft_putendl_fd.c            | C        |         13 |         11 |          4 |         28 |
+| /home/ehosta/Documents/push_swap/libft/src/fd/ft_putnbr_base_fd.c        | C        |         24 |         11 |          4 |         39 |
+| /home/ehosta/Documents/push_swap/libft/src/fd/ft_putnbr_fd.c             | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/fd/ft_putptr_fd.c             | C        |         17 |         11 |          4 |         32 |
+| /home/ehosta/Documents/push_swap/libft/src/fd/ft_putstr_fd.c             | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/get_next_line/get_next_line.c | C        |         87 |         11 |         11 |        109 |
+| /home/ehosta/Documents/push_swap/libft/src/is/ft_isalnum.c               | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/is/ft_isalpha.c               | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/is/ft_isascii.c               | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/is/ft_isdigit.c               | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/is/ft_isprint.c               | C        |          5 |         11 |          3 |         19 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstadd_back.c          | C        |          8 |         11 |          3 |         22 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstadd_front.c         | C        |          8 |         11 |          3 |         22 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstclear.c             | C        |         14 |         11 |          4 |         29 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstdelone.c            | C        |          9 |         11 |          3 |         23 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstiter.c              | C        |         11 |         11 |          3 |         25 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstlast.c              | C        |          9 |         11 |          3 |         23 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstmap.c               | C        |         24 |         11 |          4 |         39 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstnew.c               | C        |         11 |         11 |          4 |         26 |
+| /home/ehosta/Documents/push_swap/libft/src/lst/ft_lstsize.c              | C        |         19 |         11 |          4 |         34 |
+| /home/ehosta/Documents/push_swap/libft/src/mem/ft_bzero.c                | C        |         11 |         11 |          4 |         26 |
+| /home/ehosta/Documents/push_swap/libft/src/mem/ft_calloc.c               | C        |         14 |         11 |          4 |         29 |
+| /home/ehosta/Documents/push_swap/libft/src/mem/ft_memchr.c               | C        |         13 |         11 |          4 |         28 |
+| /home/ehosta/Documents/push_swap/libft/src/mem/ft_memcmp.c               | C        |         15 |         11 |          4 |         30 |
+| /home/ehosta/Documents/push_swap/libft/src/mem/ft_memcpy.c               | C        |         18 |         11 |          4 |         33 |
+| /home/ehosta/Documents/push_swap/libft/src/mem/ft_memmove.c              | C        |         19 |         11 |          4 |         34 |
+| /home/ehosta/Documents/push_swap/libft/src/mem/ft_memset.c               | C        |         12 |         11 |          4 |         27 |
+| /home/ehosta/Documents/push_swap/libft/src/printf/ft_printf.c            | C        |         90 |         11 |         12 |        113 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_split.c                | C        |         70 |         11 |          9 |         90 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strchr.c               | C        |         15 |         11 |          4 |         30 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strdup.c               | C        |         19 |         11 |          4 |         34 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_striteri.c             | C        |         13 |         11 |          4 |         28 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strjoin.c              | C        |         24 |         11 |          4 |         39 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strlcat.c              | C        |         21 |         11 |          4 |         36 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strlcpy.c              | C        |         20 |         11 |          4 |         35 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strlen.c               | C        |         11 |         11 |          4 |         26 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strmapi.c              | C        |         19 |         11 |          4 |         34 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strncmp.c              | C        |         23 |         11 |          3 |         37 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strnstr.c              | C        |         26 |         11 |          4 |         41 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strrchr.c              | C        |         12 |         11 |          4 |         27 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_strtrim.c              | C        |         35 |         11 |          7 |         53 |
+| /home/ehosta/Documents/push_swap/libft/src/str/ft_substr.c               | C        |         34 |         11 |          7 |         52 |
+| /home/ehosta/Documents/push_swap/libft/src/to/ft_atoi.c                  | C        |         26 |         11 |          4 |         41 |
+| /home/ehosta/Documents/push_swap/libft/src/to/ft_itoa.c                  | C        |         63 |         11 |          9 |         83 |
+| /home/ehosta/Documents/push_swap/libft/src/to/ft_tolower.c               | C        |          7 |         11 |          3 |         21 |
+| /home/ehosta/Documents/push_swap/libft/src/to/ft_toupper.c               | C        |          7 |         11 |          3 |         21 |
+| /home/ehosta/Documents/push_swap/libft/variables.mk                      | Makefile |         96 |         11 |          4 |        111 |
+| Total                                                                    |          |      1,308 |        811 |        315 |      2,434 |
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+

@@ -1,0 +1,82 @@
+# Diff Details
+
+Date : 2025-01-23 12:31:49
+
+Directory /home/ehosta/Documents/push_swap
+
+Total : 67 files,  1308 codes, 811 comments, 315 blanks, all 2434 lines
+
+[Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details
+
+## Files
+| filename | language | code | comment | blank | total |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| [Makefile](/Makefile) | Makefile | 51 | 11 | 14 | 76 |
+| [include/ps\_defines.h](/include/ps_defines.h) | C++ | 25 | 11 | 5 | 41 |
+| [include/ps\_instructions.h](/include/ps_instructions.h) | C++ | 0 | 11 | 2 | 13 |
+| [include/ps\_io.h](/include/ps_io.h) | C++ | 7 | 11 | 4 | 22 |
+| [include/ps\_moves.h](/include/ps_moves.h) | C | 21 | 11 | 5 | 37 |
+| [include/ps\_stack.h](/include/ps_stack.h) | C++ | 8 | 11 | 4 | 23 |
+| [include/ps\_wall.h](/include/ps_wall.h) | C | 5 | 11 | 4 | 20 |
+| [include/push\_swap.h](/include/push_swap.h) | C | 13 | 11 | 4 | 28 |
+| [libft/Makefile](/libft/Makefile) | Makefile | 37 | 11 | 10 | 58 |
+| [libft/README.md](/libft/README.md) | Markdown | 4 | 0 | 2 | 6 |
+| [libft/include/ft\_fd.h](/libft/include/ft_fd.h) | C++ | 11 | 61 | 10 | 82 |
+| [libft/include/ft\_is.h](/libft/include/ft_is.h) | C++ | 8 | 38 | 8 | 54 |
+| [libft/include/ft\_lst.h](/libft/include/ft_lst.h) | C++ | 18 | 11 | 6 | 35 |
+| [libft/include/ft\_mem.h](/libft/include/ft_mem.h) | C++ | 11 | 11 | 5 | 27 |
+| [libft/include/ft\_printf.h](/libft/include/ft_printf.h) | C++ | 9 | 11 | 6 | 26 |
+| [libft/include/ft\_str.h](/libft/include/ft_str.h) | C++ | 19 | 11 | 5 | 35 |
+| [libft/include/ft\_to.h](/libft/include/ft_to.h) | C++ | 11 | 11 | 5 | 27 |
+| [libft/include/get\_next\_line.h](/libft/include/get_next_line.h) | C++ | 12 | 19 | 5 | 36 |
+| [libft/include/libft.h](/libft/include/libft.h) | C++ | 11 | 11 | 4 | 26 |
+| [libft/src/fd/ft\_putchar\_fd.c](/libft/src/fd/ft_putchar_fd.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/fd/ft\_putendl\_fd.c](/libft/src/fd/ft_putendl_fd.c) | C | 13 | 11 | 4 | 28 |
+| [libft/src/fd/ft\_putnbr\_base\_fd.c](/libft/src/fd/ft_putnbr_base_fd.c) | C | 24 | 11 | 4 | 39 |
+| [libft/src/fd/ft\_putnbr\_fd.c](/libft/src/fd/ft_putnbr_fd.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/fd/ft\_putptr\_fd.c](/libft/src/fd/ft_putptr_fd.c) | C | 17 | 11 | 4 | 32 |
+| [libft/src/fd/ft\_putstr\_fd.c](/libft/src/fd/ft_putstr_fd.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/get\_next\_line/get\_next\_line.c](/libft/src/get_next_line/get_next_line.c) | C | 87 | 11 | 11 | 109 |
+| [libft/src/is/ft\_isalnum.c](/libft/src/is/ft_isalnum.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/is/ft\_isalpha.c](/libft/src/is/ft_isalpha.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/is/ft\_isascii.c](/libft/src/is/ft_isascii.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/is/ft\_isdigit.c](/libft/src/is/ft_isdigit.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/is/ft\_isprint.c](/libft/src/is/ft_isprint.c) | C | 5 | 11 | 3 | 19 |
+| [libft/src/lst/ft\_lstadd\_back.c](/libft/src/lst/ft_lstadd_back.c) | C | 8 | 11 | 3 | 22 |
+| [libft/src/lst/ft\_lstadd\_front.c](/libft/src/lst/ft_lstadd_front.c) | C | 8 | 11 | 3 | 22 |
+| [libft/src/lst/ft\_lstclear.c](/libft/src/lst/ft_lstclear.c) | C | 14 | 11 | 4 | 29 |
+| [libft/src/lst/ft\_lstdelone.c](/libft/src/lst/ft_lstdelone.c) | C | 9 | 11 | 3 | 23 |
+| [libft/src/lst/ft\_lstiter.c](/libft/src/lst/ft_lstiter.c) | C | 11 | 11 | 3 | 25 |
+| [libft/src/lst/ft\_lstlast.c](/libft/src/lst/ft_lstlast.c) | C | 9 | 11 | 3 | 23 |
+| [libft/src/lst/ft\_lstmap.c](/libft/src/lst/ft_lstmap.c) | C | 24 | 11 | 4 | 39 |
+| [libft/src/lst/ft\_lstnew.c](/libft/src/lst/ft_lstnew.c) | C | 11 | 11 | 4 | 26 |
+| [libft/src/lst/ft\_lstsize.c](/libft/src/lst/ft_lstsize.c) | C | 19 | 11 | 4 | 34 |
+| [libft/src/mem/ft\_bzero.c](/libft/src/mem/ft_bzero.c) | C | 11 | 11 | 4 | 26 |
+| [libft/src/mem/ft\_calloc.c](/libft/src/mem/ft_calloc.c) | C | 14 | 11 | 4 | 29 |
+| [libft/src/mem/ft\_memchr.c](/libft/src/mem/ft_memchr.c) | C | 13 | 11 | 4 | 28 |
+| [libft/src/mem/ft\_memcmp.c](/libft/src/mem/ft_memcmp.c) | C | 15 | 11 | 4 | 30 |
+| [libft/src/mem/ft\_memcpy.c](/libft/src/mem/ft_memcpy.c) | C | 18 | 11 | 4 | 33 |
+| [libft/src/mem/ft\_memmove.c](/libft/src/mem/ft_memmove.c) | C | 19 | 11 | 4 | 34 |
+| [libft/src/mem/ft\_memset.c](/libft/src/mem/ft_memset.c) | C | 12 | 11 | 4 | 27 |
+| [libft/src/printf/ft\_printf.c](/libft/src/printf/ft_printf.c) | C | 90 | 11 | 12 | 113 |
+| [libft/src/str/ft\_split.c](/libft/src/str/ft_split.c) | C | 70 | 11 | 9 | 90 |
+| [libft/src/str/ft\_strchr.c](/libft/src/str/ft_strchr.c) | C | 15 | 11 | 4 | 30 |
+| [libft/src/str/ft\_strdup.c](/libft/src/str/ft_strdup.c) | C | 19 | 11 | 4 | 34 |
+| [libft/src/str/ft\_striteri.c](/libft/src/str/ft_striteri.c) | C | 13 | 11 | 4 | 28 |
+| [libft/src/str/ft\_strjoin.c](/libft/src/str/ft_strjoin.c) | C | 24 | 11 | 4 | 39 |
+| [libft/src/str/ft\_strlcat.c](/libft/src/str/ft_strlcat.c) | C | 21 | 11 | 4 | 36 |
+| [libft/src/str/ft\_strlcpy.c](/libft/src/str/ft_strlcpy.c) | C | 20 | 11 | 4 | 35 |
+| [libft/src/str/ft\_strlen.c](/libft/src/str/ft_strlen.c) | C | 11 | 11 | 4 | 26 |
+| [libft/src/str/ft\_strmapi.c](/libft/src/str/ft_strmapi.c) | C | 19 | 11 | 4 | 34 |
+| [libft/src/str/ft\_strncmp.c](/libft/src/str/ft_strncmp.c) | C | 23 | 11 | 3 | 37 |
+| [libft/src/str/ft\_strnstr.c](/libft/src/str/ft_strnstr.c) | C | 26 | 11 | 4 | 41 |
+| [libft/src/str/ft\_strrchr.c](/libft/src/str/ft_strrchr.c) | C | 12 | 11 | 4 | 27 |
+| [libft/src/str/ft\_strtrim.c](/libft/src/str/ft_strtrim.c) | C | 35 | 11 | 7 | 53 |
+| [libft/src/str/ft\_substr.c](/libft/src/str/ft_substr.c) | C | 34 | 11 | 7 | 52 |
+| [libft/src/to/ft\_atoi.c](/libft/src/to/ft_atoi.c) | C | 26 | 11 | 4 | 41 |
+| [libft/src/to/ft\_itoa.c](/libft/src/to/ft_itoa.c) | C | 63 | 11 | 9 | 83 |
+| [libft/src/to/ft\_tolower.c](/libft/src/to/ft_tolower.c) | C | 7 | 11 | 3 | 21 |
+| [libft/src/to/ft\_toupper.c](/libft/src/to/ft_toupper.c) | C | 7 | 11 | 3 | 21 |
+| [libft/variables.mk](/libft/variables.mk) | Makefile | 96 | 11 | 4 | 111 |
+
+[Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details

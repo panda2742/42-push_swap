@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_moves.h                                         :+:      :+:    :+:   */
+/*   rrx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 11:45:37 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 13:13:49 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/23 12:44:29 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/23 13:21:14 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_MOVES_H
-# define PS_MOVES_H
+#include "../../include/push_swap.h"
 
-# include "ps_defines.h"
+void	rra(t_env *env)
+{
+	reverse_rotate(env, 'a', 1);
+}
 
-int		extract_from_stack(int *tab, size_t head, size_t *size);
-void	push_to_stack(int *tab, size_t head, size_t *size, int elt);
-void	push(t_env *env, char c, int to_print);
-void	reverse_rotate(t_env *env, char c, int to_print);
-void	rotate(t_env *env, char c, int to_print);
-void	swap(t_env *env, char c, int to_print);
+void	rrb(t_env *env)
+{
+	reverse_rotate(env, 'b', 1);
+}
 
-#endif
+void	rrr(t_env *env)
+{
+	reverse_rotate(env, 'r', 1);
+}

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_moves.h                                         :+:      :+:    :+:   */
+/*   ps_instructions.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 11:45:37 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 13:13:49 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/23 12:30:46 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/23 13:26:02 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_MOVES_H
-# define PS_MOVES_H
+#ifndef PS_INSTRUCTIONS_H
+# define PS_INSTRUCTIONS_H
 
-# include "ps_defines.h"
+# include "ps_moves.h"
 
-int		extract_from_stack(int *tab, size_t head, size_t *size);
-void	push_to_stack(int *tab, size_t head, size_t *size, int elt);
-void	push(t_env *env, char c, int to_print);
-void	reverse_rotate(t_env *env, char c, int to_print);
-void	rotate(t_env *env, char c, int to_print);
-void	swap(t_env *env, char c, int to_print);
+void	sa(t_env *env);
+void	sb(t_env *env);
+void	ss(t_env *env);
+
+void	pa(t_env *env);
+void	pb(t_env *env);
+
+void	ra(t_env *env);
+void	rb(t_env *env);
+void	rr(t_env *env);
+
+void	rra(t_env *env);
+void	rrb(t_env *env);
+void	rrr(t_env *env);
 
 #endif
