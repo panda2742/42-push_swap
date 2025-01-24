@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_sorting.c                                    :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 16:02:55 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 16:54:52 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/24 17:27:35 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/24 17:30:04 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-static int	_is_sorted(t_env *env);
-
-void	stack_sorting(t_env *env)
-{
-	if (_is_sorted(env))
-		return ;
-	else if (env->a_size == 2)
-		sort_2(env);
-	else if (env->a_size == 3)
-		sort_3(env);
-	(void)env;
-}
-
-static int	_is_sorted(t_env *env)
+int	is_sorted(t_env *env)
 {
 	size_t	i;
 	size_t	j;

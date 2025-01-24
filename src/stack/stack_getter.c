@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:19:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 17:10:39 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 17:30:00 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	get_stack_min(int *stack, size_t size)
 {
 	size_t	i;
 	size_t	min;
-	
+
 	i = -1;
 	min = 0;
 	while (++i < size)
@@ -29,7 +29,7 @@ size_t	get_stack_max(int *stack, size_t size)
 {
 	size_t	i;
 	size_t	max;
-	
+
 	i = -1;
 	max = 0;
 	while (++i < size)

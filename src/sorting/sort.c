@@ -6,11 +6,11 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:00:27 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 17:01:17 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 17:30:09 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	sort(t_env *env)
 {
