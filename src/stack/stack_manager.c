@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:50:27 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 15:29:25 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 17:12:08 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ int	*dup_stack(int *stack, size_t stack_size)
 	i = -1;
 	while (++i < stack_size)
 		tab[i] = stack[i];
+	selection_sort(tab, stack_size);
+	i = -1;
+	while (++i < stack_size)
+	{
+		stack[getpos(stack, tab[i], stack_size)] = i;
+		tab[i] = i;
+	}
 	return (tab);
 }
 

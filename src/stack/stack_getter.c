@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:19:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 16:43:51 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 17:10:39 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	get_stack_max(int *stack, size_t size)
 	return (max);
 }
 
-size_t	getpos(int *stack, size_t pos, size_t size, ssize_t offset)
+size_t	getval(int *stack, size_t pos, size_t size, ssize_t offset)
 {
 	int	sign;
 
@@ -53,6 +53,17 @@ size_t	getpos(int *stack, size_t pos, size_t size, ssize_t offset)
 		offset -= sign;
 	}
 	return (stack[pos]);
+}
+
+size_t	getpos(int *stack, int value, size_t size)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < size)
+		if (stack[i] == value)
+			return (i);
+	return (i);
 }
 
 ssize_t	distance_to_pos(size_t size, size_t cur_pos, size_t pos)
