@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:14:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 10:52:38 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 14:48:32 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	_push_a(t_env *env)
 
 	if (!env->a_size)
 		return ;
-	elt = extract_from_stack(env->stack_a, env->a_head, &env->a_size);
+	elt = extract_from_stack(env->stack_a, &env->a_head, &env->a_size);
 	push_to_stack(env->stack_b, env->b_head, &env->b_size, elt);
 }
 
@@ -41,6 +41,6 @@ static void	_push_b(t_env *env)
 
 	if (!env->b_size)
 		return ;
-	elt = extract_from_stack(env->stack_b, env->b_head, &env->b_size);
+	elt = extract_from_stack(env->stack_b, &env->b_head, &env->b_size);
 	push_to_stack(env->stack_a, env->a_head, &env->a_size, elt);
 }

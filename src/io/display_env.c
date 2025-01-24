@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:16:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 15:41:20 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 16:07:34 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	display_stack(t_env *env, char c)
 	while (++iter < stack_size)
 	{
 		if (iter == head)
-			ft_printf("[%d]", stack[iter]);
+			ft_printf(". %d", stack[iter]);
 		else
-			ft_printf(" %d ", stack[iter]);
+			ft_printf("%d", stack[iter]);
 		if (iter + 1 < stack_size)
 			ft_printf(" ");
 	}

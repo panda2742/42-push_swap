@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 00:10:07 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 16:56:04 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ static void	_exit_program(t_env *env, int free_stacks, int exit_status)
 
 static void	_sort_handler(t_env *env)
 {
-	display_stack(env, 'a');
 	stack_sorting(env);
 	display_stack(env, 'a');
 }

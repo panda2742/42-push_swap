@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:02:55 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 00:26:24 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/24 16:54:52 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	stack_sorting(t_env *env)
 {
 	if (_is_sorted(env))
 		return ;
-	if (env->a_size >= 3)
+	else if (env->a_size == 2)
+		sort_2(env);
+	else if (env->a_size == 3)
 		sort_3(env);
 	(void)env;
 }
