@@ -6,8 +6,14 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:12:38 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/26 14:30:42 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/26 19:08:28 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+ssize_t	get_sorted_pos(t_env *env)
+{
+	(void)env;
+	return (0);
+}

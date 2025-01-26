@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:51:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 17:11:05 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/26 19:03:51 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_stack_str(char **stack_str, size_t size);
 size_t	get_stack_min(int *stack, size_t size);
 size_t	get_stack_max(int *stack, size_t size);
 ssize_t	distance_to_pos(size_t size, size_t cur_pos, size_t pos);
-size_t	getval(int *stack, size_t pos, size_t size, ssize_t offset);
+int		getval(int *stack, size_t pos, size_t size, ssize_t offset);
 size_t	getpos(int *stack, int value, size_t size);
 
 #endif

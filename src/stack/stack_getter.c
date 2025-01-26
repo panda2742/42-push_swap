@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:19:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 17:30:00 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/26 19:03:40 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	get_stack_max(int *stack, size_t size)
 	return (max);
 }
 
-size_t	getval(int *stack, size_t pos, size_t size, ssize_t offset)
+int	getval(int *stack, size_t pos, size_t size, ssize_t offset)
 {
 	int	sign;
 
