@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 17:29:40 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/26 14:03:44 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void	_stack_handler(t_env *env)
 {
 	env->stack_a = init_stack(env, 0);
 	env->stack_b = init_stack(env, 1);
+	env->a_pos = init_stack(env, 0);
+	env->b_pos = init_stack(env, 0);
 	env->sorted_stack = dup_stack(env->stack_a, env->stack_size);
 }
 
@@ -70,6 +72,10 @@ static void	_exit_program(t_env *env, int free_stacks, int exit_status)
 		free(env->stack_a);
 	if (env->stack_b)
 		free(env->stack_b);
+	if (env->a_pos)
+		free(env->a_pos);
+	if (env->b_pos)
+		free(env->b_pos);
 	if (env->sorted_stack)
 		free(env->sorted_stack);
 	free(env);
@@ -87,4 +93,5 @@ static void	_sort_handler(t_env *env)
 		sort_3(env);
 	else
 		sort(env);
+	display_env(env);
 }

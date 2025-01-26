@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/24 17:28:56 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/26 14:30:59 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ override	SRC_INSTR	:=	px rrx rx sx
 override	SRC_IO		:=	display_env display_error
 override	SRC_MOVES	:=	extract_from_stack push_to_stack push \
 							reverse_rotate rotate swap
-override	SRC_SORTING	:=	cheapest_instructions is_sorted selection_sort \
+override	SRC_SORTING	:=	cheapest_move is_sorted selection_sort \
 							sort_n_elements sort
 override	SRC_STACK	:=	stack_getter stack_manager
 override	SRC_WALL	:=	check_argv
