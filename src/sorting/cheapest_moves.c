@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:12:38 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 14:55:33 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 15:04:00 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ static int	_get_most_efficient(
 				int (*f[ALGOS_NUMBER][ALGOS_PART])(t_env *, int)
 				);
 static int	_get_moves_for_algo(t_env *env, int (*f[ALGOS_PART])(t_env *, int));
+static int	_do_nothing(t_env *env, int emulation);
 
 void	cheapest_moves(t_env *env)
 {
 	static t_algos_list	f = {
-	{move_reverse_all, sort_3},
-	{move_reverse_all, sort_3},
-	{move_reverse_all, sort_3},
-	{move_reverse_all, sort_3},
-	{move_reverse_all, sort_3},
+	{move_reverse_all, sort_3, _do_nothing, _do_nothing, _do_nothing},
 	};
 	t_env				*em_env;
 	int					most_efficient;
@@ -79,4 +76,11 @@ static int	_get_moves_for_algo(t_env *env, int (*f[ALGOS_PART])(t_env *, int))
 	while (++i < ALGOS_PART)
 		moves += f[i](env, 1);
 	return (moves);
+}
+
+static int	_do_nothing(t_env *env, int emulation)
+{
+	(void)env;
+	(void)emulation;
+	return (0);
 }

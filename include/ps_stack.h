@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:51:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 13:57:05 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 15:03:37 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 int		*init_stack(t_env *env, int is_empty);
 int		*dup_stack(int *stack, int stack_size);
 void	free_stack_str(char **stack_str, int size);
-int	distance_to_pos(int size, int cur_pos, int pos);
+int		distance_to_pos(int size, int cur_pos, int pos);
 int		getval(int *stack, int pos, int size, int offset);
-int	getpos(int *stack, int value, int size);
+int		getpos(int *stack, int value, int size);
 int		*copy_stack_a(t_env *env, t_env *em_env);
 int		*copy_stack_b(t_env *env, t_env *em_env);
 int		*copy_stack_s(t_env *env, t_env *em_env);

@@ -6,15 +6,15 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:38:08 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 14:56:18 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 15:02:12 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_SORTING_H
 # define PS_SORTING_H
 
-# define ALGOS_NUMBER 5
-# define ALGOS_PART 2
+# define ALGOS_NUMBER 1
+# define ALGOS_PART 5
 
 typedef int (*t_algos_list[ALGOS_NUMBER][ALGOS_PART])(t_env *, int);
 
