@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 01:02:44 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:34:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:41:54 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	extract_from_stack(int *tab, int *head, int *size)
 {
-	int		elt;
+	int	elt;
 	int	i;
 
 	elt = tab[*head];

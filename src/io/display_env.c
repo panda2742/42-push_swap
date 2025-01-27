@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:16:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:34:10 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:41:19 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	display_env(t_env *env)
 void	display_stack(t_env *env, char c)
 {
 	int	iter;
-	int		*stack;
+	int	*stack;
 	int	stack_size;
 	int	head;
 

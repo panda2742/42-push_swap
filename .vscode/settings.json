@@ -3,7 +3,8 @@
 		"push_swap.h": "c",
 		"ps_wall.h": "c",
 		"ps_clist.h": "c",
-		"ps_moves.h": "c"
+		"ps_moves.h": "c",
+		"ps_sorting.h": "c"
 	},
 	"cmake.sourceDirectory": "/home/ehosta/Documents/push_swap/push_swap_visualizer/build/_deps/sfml-src"
 }

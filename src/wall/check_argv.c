@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:34:19 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:41:35 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static t_wall_status	_check_stack(t_env *env)
 
 static int	_check_stack_element(const char *stack_elt)
 {
-	int	i;
-	int	elt_len;
+	int		i;
+	int		elt_len;
 	long	value;
 	int		sign;
 	char	c;

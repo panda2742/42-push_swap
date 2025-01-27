@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:50:27 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:34:18 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:43:30 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	*init_stack(t_env *env, int is_empty)
 {
-	int			i;
-	int				*tab;
+	int	i;
+	int	*tab;
 
 	tab = malloc(env->stack_size * sizeof(int));
 	if (is_empty)
@@ -28,7 +28,7 @@ int	*init_stack(t_env *env, int is_empty)
 
 int	*dup_stack(int *stack, int stack_size)
 {
-	int		*tab;
+	int	*tab;
 	int	i;
 
 	tab = malloc(stack_size * sizeof(int));

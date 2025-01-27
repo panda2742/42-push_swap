@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:45:14 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:34:14 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:41:47 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	_exe_swap(int *target, int target_size, int target_head);
 
 void	swap(t_env *env, char c, int to_print)
 {
-	int		*target;
+	int	*target;
 	int	target_size;
 	int	target_head;
 
@@ -43,7 +43,7 @@ void	swap(t_env *env, char c, int to_print)
 
 static void	_exe_swap(int *target, int target_size, int target_head)
 {
-	int		tmp;
+	int	tmp;
 	int	i_to_swap;
 
 	if (target_size < 2)
