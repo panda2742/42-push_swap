@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 13:17:33 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:34:19 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_wall_status	check_argv(t_env *env)
 
 static t_wall_status	_check_stack(t_env *env)
 {
-	size_t	i;
+	int	i;
 
 	i = -1;
 	while (++i < env->stack_size)
@@ -60,8 +60,8 @@ static t_wall_status	_check_stack(t_env *env)
 
 static int	_check_stack_element(const char *stack_elt)
 {
-	size_t	i;
-	size_t	elt_len;
+	int	i;
+	int	elt_len;
 	long	value;
 	int		sign;
 	char	c;
@@ -96,8 +96,8 @@ static int	_check_value(int value, int sign, char c)
 
 static int	_check_doubles(t_env *env)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < env->stack_size)

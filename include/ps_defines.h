@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:04:46 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/26 18:47:21 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:31:58 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ typedef struct s_env
 	t_wall_status	wall_status;
 
 	char			**stack_str;
-	size_t			stack_size;
+	int				stack_size;
 	int				*sorted_stack;
 
 	int				*stack_a;
-	size_t			a_size;
-	size_t			a_head;
+	int				a_size;
+	int				a_head;
 
 	int				*stack_b;
-	size_t			b_size;
-	size_t			b_head;
+	int				b_size;
+	int				b_head;
 }	t_env;
 
 #endif

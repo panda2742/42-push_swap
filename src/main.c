@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/26 19:09:23 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:35:20 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,10 @@ static void	_sort_handler(t_env *env)
 	if (is_sorted(env))
 		return ;
 	else if (env->a_size == 2)
-		sort_2(env);
+		sort_2(env, 0);
 	else if (env->a_size == 3)
-		sort_3(env);
+		sort_3(env, 0);
 	else
 		sort(env);
+	display_env(env);
 }

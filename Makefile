@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/26 14:30:59 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/27 10:26:21 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,14 @@ NAME	= push_swap
 MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
-override	SRC_INSTR	:=	px rrx rx sx
 override	SRC_IO		:=	display_env display_error
 override	SRC_MOVES	:=	extract_from_stack push_to_stack push \
 							reverse_rotate rotate swap
-override	SRC_SORTING	:=	cheapest_move is_sorted selection_sort \
-							sort_n_elements sort
-override	SRC_STACK	:=	stack_getter stack_manager
+override	SRC_SORTING	:=	algos/move_all algos/sort_n_elements \
+							cheapest_moves is_sorted selection_sort sort
+override	SRC_STACK	:=	copy_stack stack_getter stack_manager
 override	SRC_WALL	:=	check_argv
-override	SRCS		:=	$(addprefix instructions/,$(SRC_INSTR)) \
-							$(addprefix io/,$(SRC_IO)) \
+override	SRCS		:=	$(addprefix io/,$(SRC_IO)) \
 							$(addprefix moves/,$(SRC_MOVES)) \
 							$(addprefix sorting/,$(SRC_SORTING)) \
 							$(addprefix stack/,$(SRC_STACK)) \

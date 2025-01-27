@@ -6,17 +6,17 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:36:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 00:26:08 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:34:15 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	selection_sort(int *list, size_t length)
+void	selection_sort(int *list, int length)
 {
-	size_t	i;
-	size_t	j;
-	size_t	min;
+	int	i;
+	int	j;
+	int	min;
 	int		tmp;
 
 	i = -1;

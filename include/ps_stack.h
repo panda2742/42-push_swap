@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:51:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/26 19:03:51 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 13:57:05 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@
 # include "ps_wall.h"
 
 int		*init_stack(t_env *env, int is_empty);
-int		*dup_stack(int *stack, size_t stack_size);
-void	free_stack_str(char **stack_str, size_t size);
-size_t	get_stack_min(int *stack, size_t size);
-size_t	get_stack_max(int *stack, size_t size);
-ssize_t	distance_to_pos(size_t size, size_t cur_pos, size_t pos);
-int		getval(int *stack, size_t pos, size_t size, ssize_t offset);
-size_t	getpos(int *stack, int value, size_t size);
+int		*dup_stack(int *stack, int stack_size);
+void	free_stack_str(char **stack_str, int size);
+int	distance_to_pos(int size, int cur_pos, int pos);
+int		getval(int *stack, int pos, int size, int offset);
+int	getpos(int *stack, int value, int size);
+int		*copy_stack_a(t_env *env, t_env *em_env);
+int		*copy_stack_b(t_env *env, t_env *em_env);
+int		*copy_stack_s(t_env *env, t_env *em_env);
+void	free_copied_env(t_env *em_env);
+t_env	*create_emulation(t_env *env);
+t_env	*reset_em_env(t_env *env, t_env *em_env);
 
 #endif

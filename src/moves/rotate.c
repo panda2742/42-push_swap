@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:23:32 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 15:18:27 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:34:13 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	rotate(t_env *env, char c, int to_print)
 {
-	size_t	*head;
-	size_t	size;
+	int	*head;
+	int	size;
 
 	if (c == 'r')
 	{

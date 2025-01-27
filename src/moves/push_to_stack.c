@@ -6,15 +6,15 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 09:27:07 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/23 11:32:57 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:34:12 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	push_to_stack(int *tab, size_t head, size_t *size, int elt)
+void	push_to_stack(int *tab, int head, int *size, int elt)
 {
-	size_t	i;
+	int	i;
 
 	i = *size;
 	*size += 1;

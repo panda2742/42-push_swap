@@ -6,22 +6,23 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 00:00:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:58 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:16:49 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../../include/push_swap.h"
 
-void	sort_2(t_env *env)
+int	sort_2(t_env *env, int emulation)
 {
 	int		*t;
 
 	t = env->stack_a;
 	if (t[0] > t[1])
-		sa(env);
+		return (swap(env, 'a', !emulation), 1);
+	return (0);
 }
 
-void	sort_3(t_env *env)
+int	sort_3(t_env *env, int emulation)
 {
 	int	*t;
 
@@ -30,14 +31,23 @@ void	sort_3(t_env *env)
 	{
 		if (t[1] > t[2])
 		{
-			sa(env);
-			return (rra(env));
+			swap(env, 'a', !emulation);
+			return (reverse_rotate(env, 'a', !emulation), 2);
 		}
-		return (ra(env));
+		return (rotate(env, 'a', !emulation), 1);
 	}
 	if (t[0] > t[2])
-		return (rra(env));
-	ra(env);
-	sa(env);
-	rra(env);
+		return (reverse_rotate(env, 'a', !emulation), 1);
+	reverse_rotate(env, 'a', !emulation);
+	swap(env, 'a', !emulation);
+	return (2);
 }
+
+/*
+1 2 3 X
+1 3 2 
+3 1 2 X
+3 2 1 X
+2 1 3 X
+2 3 1 X
+*/

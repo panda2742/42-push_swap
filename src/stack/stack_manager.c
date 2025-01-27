@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:50:27 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 17:12:08 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:34:18 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	*init_stack(t_env *env, int is_empty)
 {
-	size_t			i;
+	int			i;
 	int				*tab;
 
 	tab = malloc(env->stack_size * sizeof(int));
@@ -26,10 +26,10 @@ int	*init_stack(t_env *env, int is_empty)
 	return (tab);
 }
 
-int	*dup_stack(int *stack, size_t stack_size)
+int	*dup_stack(int *stack, int stack_size)
 {
 	int		*tab;
-	size_t	i;
+	int	i;
 
 	tab = malloc(stack_size * sizeof(int));
 	if (!tab)
@@ -47,12 +47,25 @@ int	*dup_stack(int *stack, size_t stack_size)
 	return (tab);
 }
 
-void	free_stack_str(char **stack_str, size_t size)
+void	free_stack_str(char **stack_str, int size)
 {
-	size_t	i;
+	int	i;
 
 	i = -1;
 	while (++i < size)
 		free(stack_str[i]);
 	free(stack_str);
+}
+
+t_env	*create_emulation(t_env *env)
+{
+	t_env	*em_env;
+
+	em_env = malloc(sizeof(t_env));
+	if (!em_env)
+		return (NULL);
+	copy_stack_a(env, em_env);
+	copy_stack_b(env, em_env);
+	copy_stack_s(env, em_env);
+	return (em_env);
 }

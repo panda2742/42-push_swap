@@ -6,39 +6,13 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:19:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/26 19:03:40 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:35:00 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-size_t	get_stack_min(int *stack, size_t size)
-{
-	size_t	i;
-	size_t	min;
-
-	i = -1;
-	min = 0;
-	while (++i < size)
-		if (stack[i] < stack[min])
-			min = i;
-	return (min);
-}
-
-size_t	get_stack_max(int *stack, size_t size)
-{
-	size_t	i;
-	size_t	max;
-
-	i = -1;
-	max = 0;
-	while (++i < size)
-		if (stack[i] > stack[max])
-			max = i;
-	return (max);
-}
-
-int	getval(int *stack, size_t pos, size_t size, ssize_t offset)
+int	getval(int *stack, int pos, int size, int offset)
 {
 	int	sign;
 
@@ -55,9 +29,9 @@ int	getval(int *stack, size_t pos, size_t size, ssize_t offset)
 	return (stack[pos]);
 }
 
-size_t	getpos(int *stack, int value, size_t size)
+int	getpos(int *stack, int value, int size)
 {
-	size_t	i;
+	int	i;
 
 	i = -1;
 	while (++i < size)
@@ -66,29 +40,29 @@ size_t	getpos(int *stack, int value, size_t size)
 	return (i);
 }
 
-ssize_t	distance_to_pos(size_t size, size_t cur_pos, size_t pos)
+int	distance_to_pos(int size, int cur_pos, int pos)
 {
-	ssize_t	distr;
-	ssize_t	distrr;
-	ssize_t	i;
+	int	distr;
+	int	distrr;
+	int	i;
 
 	distr = 0;
 	i = cur_pos - 1;
-	while (++i != (ssize_t)pos)
+	while (++i != (int)pos)
 	{
-		if (i == (ssize_t)size)
+		if (i == (int)size)
 			i = -1;
 		distr++;
 	}
 	distrr = 0;
 	i = cur_pos + 1;
-	while (--i != (ssize_t)pos)
+	while (--i != (int)pos)
 	{
 		if (i == -1)
 			i = size;
 		distrr--;
 	}
-	if (ft_abs(distrr) >= distr)
+	if ((int)ft_abs(distrr) >= distr)
 		return (distr);
 	return (distrr);
 }

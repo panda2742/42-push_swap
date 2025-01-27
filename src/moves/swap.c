@@ -6,19 +6,19 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:45:14 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/22 15:18:18 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/27 11:34:14 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	_exe_swap(int *target, size_t target_size, size_t target_head);
+static void	_exe_swap(int *target, int target_size, int target_head);
 
 void	swap(t_env *env, char c, int to_print)
 {
 	int		*target;
-	size_t	target_size;
-	size_t	target_head;
+	int	target_size;
+	int	target_head;
 
 	if (c == 's')
 	{
@@ -41,10 +41,10 @@ void	swap(t_env *env, char c, int to_print)
 	return (_exe_swap(target, target_size, target_head));
 }
 
-static void	_exe_swap(int *target, size_t target_size, size_t target_head)
+static void	_exe_swap(int *target, int target_size, int target_head)
 {
 	int		tmp;
-	size_t	i_to_swap;
+	int	i_to_swap;
 
 	if (target_size < 2)
 		return ;
