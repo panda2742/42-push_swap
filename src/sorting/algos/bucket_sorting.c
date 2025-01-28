@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 09:23:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/28 15:54:48 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/28 16:03:08 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static int	_push_until_median(t_env *env, int buckets, int offset, int emulation, int elt_per_bucket);
 static int	_travel_throught_stack(t_env *env, int *elements);
 static int	*_nearest_combination(t_env *env, int offset, int elt_per_bucket);
-static int	*_sort_by_nearest(int *elements, int elt_per_buckets, int pushed, t_env *env);
 
 int	bucket_sorting(t_env *env, int emulation)
 {
@@ -98,32 +97,11 @@ static int	*_nearest_combination(t_env *env, int offset, int elt_per_bucket)
 	i = -1;
 	while (++i < elt_per_bucket && (elt_per_bucket * offset + i) < env->a_size)
 	{
-		elements[i] = elt_per_bucket * offset + i;
+		elements[i] = env->a_size - (elt_per_bucket * offset + i + 1);
 		pushed++;
 	}
 	elements[i] = -1;
 	printf("elements: %p (%d)\n", elements, pushed);
 	display_inttab(elements, pushed, 0);
-	elements = _sort_by_nearest(elements, elt_per_bucket, pushed, env);
-	printf("elements by nearest: %p (%d)\n", elements, pushed);
-	display_inttab(elements, pushed, 0);
-	return (elements);
-}
-
-static int	*_sort_by_nearest(int *elements, int elt_per_buckets, int pushed, t_env *env)
-{
-;	int	*positions;
-	int	i;
-
-	positions = malloc((elt_per_buckets + 1) * sizeof(int));
-	if (!positions)
-		return (NULL);
-	i = -1;
-	while (++i < pushed)
-	{
-		positions[i] = distance_to_pos(pushed, env->a_head, getpos(env->stack_a, elements[i], env->a_size));
-	}
-	mirror_selection_sort(positions, pushed, elements);
-	free(positions);
 	return (elements);
 }
