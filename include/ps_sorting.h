@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:38:08 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 15:02:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/28 14:26:14 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 typedef int (*t_algos_list[ALGOS_NUMBER][ALGOS_PART])(t_env *, int);
 
 void	selection_sort(int *list, int length);
+void	mirror_selection_sort(int *list, int length, int *pair);
 void	sort(t_env *env);
 int		is_sorted(t_env *env);
 void	cheapest_moves(t_env *env);
 
 int		sort_2(t_env *env, int emulation);
 int		sort_3(t_env *env, int emulation);
-int		move_reverse_all(t_env *env, int emulation);
-int		everything_ascending(t_env *env, int emulation);
+int		bucket_sorting(t_env *env, int emulation);
+int		push_until_median(t_env *env, int buckets, int offset, int emulation);
 
 #endif

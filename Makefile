@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/27 10:26:21 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/28 14:47:10 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ override	SRC_DIR		:=	src/
 override	SRC_IO		:=	display_env display_error
 override	SRC_MOVES	:=	extract_from_stack push_to_stack push \
 							reverse_rotate rotate swap
-override	SRC_SORTING	:=	algos/move_all algos/sort_n_elements \
+override	SRC_SORTING	:=	algos/bucket_sorting algos/sort_n_elements \
 							cheapest_moves is_sorted selection_sort sort
 override	SRC_STACK	:=	copy_stack stack_getter stack_manager
 override	SRC_WALL	:=	check_argv

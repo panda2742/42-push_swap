@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 00:00:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:16:49 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/28 09:41:01 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,3 @@ int	sort_3(t_env *env, int emulation)
 	swap(env, 'a', !emulation);
 	return (2);
 }
-
-/*
-1 2 3 X
-1 3 2 
-3 1 2 X
-3 2 1 X
-2 1 3 X
-2 3 1 X
-*/

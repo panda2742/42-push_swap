@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:19:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:35:00 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/28 15:46:01 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ int	distance_to_pos(int size, int cur_pos, int pos)
 
 	distr = 0;
 	i = cur_pos - 1;
-	while (++i != (int)pos)
+	while (++i != pos)
 	{
-		if (i == (int)size)
+		if (i == size)
 			i = -1;
 		distr++;
 	}
 	distrr = 0;
 	i = cur_pos + 1;
-	while (--i != (int)pos)
+	while (--i != pos)
 	{
 		if (i == -1)
 			i = size;

@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:00:27 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 14:43:07 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/28 11:12:39 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,4 @@
 void	sort(t_env *env)
 {
 	cheapest_moves(env);
-	while (env->b_size)
-		push(env, 'b', 1);
 }

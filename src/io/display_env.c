@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 10:16:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 14:41:19 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/28 15:20:35 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,23 @@ void	display_stack(t_env *env, char c)
 		else
 			ft_printf("%d", stack[iter]);
 		if (iter + 1 < stack_size)
+			ft_printf(" ");
+	}
+	ft_printf("\n");
+}
+
+void	display_inttab(int *tab, int size, int head)
+{
+	int	iter;
+
+	iter = -1;
+	while (++iter < size)
+	{
+		if (iter == head)
+			ft_printf(". %d", tab[iter]);
+		else
+			ft_printf("%d", tab[iter]);
+		if (iter + 1 < size)
 			ft_printf(" ");
 	}
 	ft_printf("\n");
