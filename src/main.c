@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:35:20 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/29 10:56:57 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	_wall_handler(t_env *env);
 static void	_stack_handler(t_env *env);
-static void	_exit_program(t_env *env, int free_stacks, int exit_status);
 static void	_sort_handler(t_env *env);
+static void	_exit_program(t_env *env, int free_stacks, int exit_status);
 
 int	main(int argc, char **argv)
 {
@@ -49,7 +49,7 @@ static void	_wall_handler(t_env *env)
 		_exit_program(env, 0, EXIT_FAILURE);
 	if (env->wall_status == WALL_ERROR)
 	{
-		display_error();
+		ft_printf("Error\n");
 		_exit_program(env, 0, EXIT_FAILURE);
 	}
 }
@@ -59,6 +59,19 @@ static void	_stack_handler(t_env *env)
 	env->stack_a = init_stack(env, 0);
 	env->stack_b = init_stack(env, 1);
 	env->sorted_stack = dup_stack(env->stack_a, env->stack_size);
+}
+
+static void	_sort_handler(t_env *env)
+{
+	if (is_sorted(env))
+		return ;
+	else if (env->a_size == 2)
+		sort_2(env, 0);
+	else if (env->a_size == 3)
+		sort_3(env, 0);
+	else
+		sort(env);
+	display_env(env);
 }
 
 static void	_exit_program(t_env *env, int free_stacks, int exit_status)
@@ -75,17 +88,4 @@ static void	_exit_program(t_env *env, int free_stacks, int exit_status)
 	free(env);
 	if (exit_status != -1)
 		exit(exit_status);
-}
-
-static void	_sort_handler(t_env *env)
-{
-	if (is_sorted(env))
-		return ;
-	else if (env->a_size == 2)
-		sort_2(env, 0);
-	else if (env->a_size == 3)
-		sort_3(env, 0);
-	else
-		sort(env);
-	display_env(env);
 }

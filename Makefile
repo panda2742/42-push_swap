@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/28 14:47:10 by ehosta           ###   ########.fr        #
+#    Updated: 2025/01/29 16:41:16 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,14 @@ NAME	= push_swap
 MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
-override	SRC_IO		:=	display_env display_error
 override	SRC_MOVES	:=	extract_from_stack push_to_stack push \
 							reverse_rotate rotate swap
-override	SRC_SORTING	:=	algos/bucket_sorting algos/sort_n_elements \
-							cheapest_moves is_sorted selection_sort sort
+override	SRC_SORTING	:=	algos/bucket_sorting_utils algos/bucket_sorting \
+							algos/sort_n_elements cheapest_moves is_sorted \
+							selection_sort sort
 override	SRC_STACK	:=	copy_stack stack_getter stack_manager
 override	SRC_WALL	:=	check_argv
-override	SRCS		:=	$(addprefix io/,$(SRC_IO)) \
-							$(addprefix moves/,$(SRC_MOVES)) \
+override	SRCS		:=	$(addprefix moves/,$(SRC_MOVES)) \
 							$(addprefix sorting/,$(SRC_SORTING)) \
 							$(addprefix stack/,$(SRC_STACK)) \
 							$(addprefix wall/,$(SRC_WALL)) \
@@ -48,7 +47,7 @@ override	_RED		:=	\033[0;31m
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(LIBFT)libft.a $(OBJ)
+$(NAME): $(LIBFT)libft.a $(OBJ) include/push_swap.h Makefile
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT)libft.a -o $(NAME)
 
 $(LIBFT)libft.a:

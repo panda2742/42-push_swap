@@ -4,7 +4,15 @@
 		"ps_wall.h": "c",
 		"ps_clist.h": "c",
 		"ps_moves.h": "c",
-		"ps_sorting.h": "c"
+		"ps_sorting.h": "c",
+		"ranges": "c",
+		"array": "c",
+		"bitset": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"span": "c",
+		"regex": "c",
+		"utility": "c"
 	},
 	"cmake.sourceDirectory": "/home/ehosta/Documents/push_swap/push_swap_visualizer/build/_deps/sfml-src"
 }
