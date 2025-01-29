@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_manager.c                                      :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 15:39:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/29 17:22:48 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/29 17:05:29 by ehosta            #+#    #+#             */
+/*   Updated: 2025/01/29 17:40:07 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
-t_env	*create_env(void)
+t_push_swap	*create_push_swap(int argc, char **argv)
 {
-	t_env	*env;
+	t_push_swap	*push_swap;
 
-	env = malloc(sizeof(t_env));
-	if (!env)
+	push_swap = malloc(sizeof(t_push_swap));
+	if (!push_swap)
 		return (NULL);
-	env->stack_size = 0;
-	env->stack_str = NULL;
-	env->is_copy = false;
-	env->stacks = NULL;
+	push_swap->argc = argc;
+	push_swap->argv = argv;
+	push_swap->is_in_stackmem = true;
+	push_swap->wall_status = WALL_OK;
+	push_swap->env = NULL;
+	return (push_swap);
 }
