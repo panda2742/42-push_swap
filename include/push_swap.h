@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/29 17:24:55 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/31 13:25:11 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ typedef enum	e_bool
 {
 	false, true
 }	t_bool;
+
+typedef enum	e_stack_food_type
+{
+	int_stack, string_stack
+}	t_stack_food_type;
+
+typedef enum	e_moves_store_action
+{
+	store_push,
+	store_free
+}	t_moves_store_action;
 
 typedef enum e_wall_status
 {
@@ -44,7 +55,7 @@ typedef struct	s_env
 	int		stack_size;
 	char	**stack_str;
 	t_bool	is_copy;
-	t_stack	*stacks;
+	t_stack	**stacks;
 }	t_env;
 
 typedef struct s_push_swap
@@ -77,5 +88,12 @@ void	swap(t_env *env, char c, int to_print);
 
 t_env	*create_env(void);
 t_push_swap	*create_push_swap(int argc, char **argv);
+t_stack	*create_stack(int size, char identifier);
+t_stack	*feed_stack(
+	t_stack *stack, t_stack_food_type type, void *content, int size);
+t_stack	*sort_and_replace_by_index(t_stack *dest, t_stack *src, int size);
+void	selection_sort(int *list, int length);
+int	getpos(int *stack, int value, int size);
+int	is_sorted(t_env *env);
 
 #endif

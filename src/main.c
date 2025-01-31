@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/29 17:45:25 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/31 11:44:53 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,30 @@ static void	_wall_handler(t_push_swap *p)
 
 static void	_stack_handler(t_push_swap *p)
 {
-	// TODO: init les stacks et creer une troisieme stack triee de stack a
-	(void)p;
+	t_stack	*a;
+	t_stack	*b;
+	t_stack	*c;
+
+	a = create_stack(p->env->stack_size, 'a');
+	if (!a)
+		_exit_program(p, EXIT_FAILURE);
+	b = create_stack(p->env->stack_size, 'b');
+	if (!b)
+		_exit_program(p, EXIT_FAILURE);
+	a = feed_stack(a, string_stack, p->env->stack_str, p->env->stack_size);
+	c = create_stack(p->env->stack_size, 'c');
+	if (!c)
+		_exit_program(p, EXIT_FAILURE);
+	c = sort_and_replace_by_index(c, a, p->env->stack_size);
+	b->next = c;
+	a->next = b;
+	p->env->stacks[0] = a;
 }
 
 static void	_sort_handler(t_push_swap *p)
 {
-	// if (is_sorted(env))
-	// 	return ;
+	if (is_sorted(p->env))
+		return ;
 	// else if (env->a_size == 2)
 	// 	sort_2(env, 0);
 	// else if (env->a_size == 3)

@@ -6,13 +6,13 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 00:00:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/28 09:41:01 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/01/31 13:01:37 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/push_swap.h"
 
-int	sort_2(t_env *env, int emulation)
+int	sort_2(t_env *env)
 {
 	int		*t;
 
