@@ -6,13 +6,13 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:19:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/28 15:46:01 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 11:50:16 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	getval(int *stack, int pos, int size, int offset)
+int	getval(t_stack *s, int pos, int offset)
 {
 	int	sign;
 
@@ -21,21 +21,21 @@ int	getval(int *stack, int pos, int size, int offset)
 	{
 		pos += sign;
 		if (pos < 0)
-			pos = size - 1;
-		if (pos > size)
+			pos = s->size - 1;
+		if (pos > s->size)
 			pos = 0;
 		offset -= sign;
 	}
-	return (stack[pos]);
+	return (s->tab[pos]);
 }
 
-int	getpos(int *stack, int value, int size)
+int	getpos(t_stack *s, int value)
 {
 	int	i;
 
 	i = -1;
-	while (++i < size)
-		if (stack[i] == value)
+	while (++i < s->size)
+		if (s->tab[i] == value)
 			return (i);
 	return (i);
 }

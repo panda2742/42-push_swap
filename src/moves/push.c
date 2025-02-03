@@ -6,41 +6,54 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:14:30 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/24 14:48:32 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 10:47:29 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	_push_a(t_env *env);
-static void	_push_b(t_env *env);
+static int	_extract_from_stack(t_stack *s);
+static void	_push_to_stack(t_stack *s, int elt);
 
-void	push(t_env *env, char c, int to_print)
-{
-	if (to_print)
-		ft_printf("p%c\n", c);
-	if (c == 'a')
-		_push_a(env);
-	else
-		_push_b(env);
-}
-
-static void	_push_a(t_env *env)
+void	push(t_stack *s1, t_stack *s2, t_bool print_move)
 {
 	int	elt;
 
-	if (!env->a_size)
-		return ;
-	elt = extract_from_stack(env->stack_a, &env->a_head, &env->a_size);
-	push_to_stack(env->stack_b, env->b_head, &env->b_size, elt);
+	if (print_move)
+		ft_printf("p%c\n", s1->identifier);
+	elt = _extract_from_stack(s2);
+	_push_to_stack(s1, elt);
 }
 
-static void	_push_b(t_env *env)
+static int	_extract_from_stack(t_stack *s)
 {
 	int	elt;
+	int	i;
 
-	if (!env->b_size)
-		return ;
-	elt = extract_from_stack(env->stack_b, &env->b_head, &env->b_size);
-	push_to_stack(env->stack_a, env->a_head, &env->a_size, elt);
+	elt = s->tab[s->head];
+	if (s->head + 1 == s->size)
+	{
+		s->size -= 1;
+		s->head = 0;
+		return (elt);
+	}
+	i = s->head - 1;
+	while (++i + 1 < s->size)
+		s->tab[i] = s->tab[i + 1];
+	s->size -= 1;
+	return (elt);
+}
+
+static void	_push_to_stack(t_stack *s, int elt)
+{
+	int	i;
+
+	i = s->size;
+	s->size += 1;
+	while (i > s->head)
+	{
+		s->tab[i] = s->tab[i - 1];
+		i--;
+	}
+	s->tab[i] = elt;
 }

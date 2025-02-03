@@ -6,37 +6,27 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:23:32 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/27 11:34:13 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 10:53:16 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	rotate(t_env *env, char c, int to_print)
+void	rotate(t_stack *s1, t_stack *s2, t_bool print_move)
 {
-	int	*head;
-	int	size;
-
-	if (c == 'r')
+	if (s2)
 	{
 		ft_printf("rr\n");
-		rotate(env, 'a', 0);
-		rotate(env, 'b', 0);
+		rotate(s1, NULL, print_move);
+		rotate(s2, NULL, print_move);
 		return ;
 	}
-	if (to_print)
-		ft_printf("r%c\n", c);
-	head = &env->a_head;
-	size = env->a_size;
-	if (size < 2)
+	if (print_move)
+		ft_printf("r%c\n", s1->identifier);
+	if (s1->size < 2)
 		return ;
-	if (c == 'b')
-	{
-		head = &env->b_head;
-		size = env->b_size;
-	}
-	if (*head == size - 1)
-		*head = 0;
+	if (s1->head == s1->size - 1)
+		s1->head = 0;
 	else
-		*head += 1;
+		s1->head += 1;
 }

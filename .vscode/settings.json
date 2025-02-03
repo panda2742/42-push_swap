@@ -12,7 +12,8 @@
 		"initializer_list": "c",
 		"span": "c",
 		"regex": "c",
-		"utility": "c"
+		"utility": "c",
+		"libft.h": "c"
 	},
 	"cmake.sourceDirectory": "/home/ehosta/Documents/push_swap/push_swap_visualizer/build/_deps/sfml-src"
 }

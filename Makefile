@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/01/29 16:41:16 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/03 12:55:17 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,18 +15,16 @@ NAME	= push_swap
 MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
-override	SRC_MOVES	:=	extract_from_stack push_to_stack push \
-							reverse_rotate rotate swap
-override	SRC_SORTING	:=	algos/bucket_sorting_utils algos/bucket_sorting \
-							algos/sort_n_elements cheapest_moves is_sorted \
-							selection_sort sort
-override	SRC_STACK	:=	copy_stack stack_getter stack_manager
+override	SRC_ENV		:=	env_manager stack_getter stack_manager
+override	SRC_MOVES	:=	push reverse_rotate rotate swap
+override	SRC_SORTING	:=	algos/bucket_sort_utils algos/bucket_sort \
+							algos/sort_n_elements is_sorted selection_sort
 override	SRC_WALL	:=	check_argv
-override	SRCS		:=	$(addprefix moves/,$(SRC_MOVES)) \
+override	SRCS		:=	$(addprefix env/,$(SRC_ENV)) \
+							$(addprefix moves/,$(SRC_MOVES)) \
 							$(addprefix sorting/,$(SRC_SORTING)) \
-							$(addprefix stack/,$(SRC_STACK)) \
 							$(addprefix wall/,$(SRC_WALL)) \
-							main
+							init main
 override	SRC			:=	$(addprefix $(SRC_DIR),$(addsuffix .c,$(SRCS)))
 override	OBJ			:=	$(patsubst $(SRC_DIR)%.c,$(BUILD_DIR)%.o,$(SRC))
 override	DEPS		:=	$(patsubst %.o,%.d,$(OBJ))

@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/31 11:44:53 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 15:53:24 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	_wall_handler(t_push_swap *p);
 static void	_stack_handler(t_push_swap *p);
 static void	_sort_handler(t_push_swap *p);
-static void	_exit_program(t_push_swap *p, int exit_status);
 
 int	main(int argc, char **argv)
 {
@@ -32,7 +31,8 @@ int	main(int argc, char **argv)
 	_wall_handler(p);
 	_stack_handler(p);
 	_sort_handler(p);
-	_exit_program(p, -1);
+	display_push_swap(p);
+	end_everything(p, false, EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
 
@@ -57,14 +57,14 @@ static void	_stack_handler(t_push_swap *p)
 
 	a = create_stack(p->env->stack_size, 'a');
 	if (!a)
-		_exit_program(p, EXIT_FAILURE);
+		end_everything(p, true, EXIT_FAILURE);
 	b = create_stack(p->env->stack_size, 'b');
 	if (!b)
-		_exit_program(p, EXIT_FAILURE);
+		end_everything(p, true , EXIT_FAILURE);
 	a = feed_stack(a, string_stack, p->env->stack_str, p->env->stack_size);
 	c = create_stack(p->env->stack_size, 'c');
 	if (!c)
-		_exit_program(p, EXIT_FAILURE);
+		end_everything(p, true, EXIT_FAILURE);
 	c = sort_and_replace_by_index(c, a, p->env->stack_size);
 	b->next = c;
 	a->next = b;
@@ -73,18 +73,15 @@ static void	_stack_handler(t_push_swap *p)
 
 static void	_sort_handler(t_push_swap *p)
 {
+	t_stack	*a;
+
 	if (is_sorted(p->env))
 		return ;
-	// else if (env->a_size == 2)
-	// 	sort_2(env, 0);
-	// else if (env->a_size == 3)
-	// 	sort_3(env, 0);
-	// else
-	// 	sort(env);
-}
-
-static void	_exit_program(t_push_swap *p, int exit_status)
-{
-	if (exit_status != -1)
-		exit(exit_status);
+	a = get_stack_by_id(p->env, 'a');
+	if (a->size == 2)
+		sort_2(a, false);
+	else if (a->size == 3)
+		sort_3(a, false);
+	else
+		bucket_sort(p);
 }

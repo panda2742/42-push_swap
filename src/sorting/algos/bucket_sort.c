@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.c                                           :+:      :+:    :+:   */
+/*   bucket_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 13:02:09 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/31 13:21:28 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/27 09:23:10 by ehosta            #+#    #+#             */
+/*   Updated: 2025/02/03 12:58:43 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../../include/push_swap.h"
 
-void	moves_store()
+int	bucket_sort(t_push_swap *p)
 {
-	static char	*moves[3];
+	int	buckets;
+	int	moves;
+	int	max_buckets;
+	int	max_moves;
+	int	i;
 
-	if (!moves)
-		moves
+	buckets = 0;
+	max_buckets = 0;
+	max_moves = 65000;
+	while (++buckets < p->env->stack_size / 2)
+	{
+		buckets = 2;
+		moves = 0;
+		i = -1;
+		if (moves < max_moves)
+		{
+			max_moves = moves;
+			max_buckets = buckets;
+		}
+		break ;
+	}
+	return (max_moves);
 }

@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/31 13:25:11 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 15:52:15 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,18 @@
 
 # include "../libft/include/libft.h"
 
-# define ALGOS_NUMBER 1
-# define ALGOS_PART 5
+# define SPACES "                                                              "
 
-typedef enum	e_bool
+typedef enum e_bool
 {
-	false, true
+	false,
+	true
 }	t_bool;
 
-typedef enum	e_stack_food_type
+typedef enum e_stack_food_type
 {
 	int_stack, string_stack
 }	t_stack_food_type;
-
-typedef enum	e_moves_store_action
-{
-	store_push,
-	store_free
-}	t_moves_store_action;
 
 typedef enum e_wall_status
 {
@@ -69,31 +63,41 @@ typedef struct s_push_swap
 	t_env			*env;
 }	t_push_swap;
 
-typedef int (*t_algos_list[ALGOS_NUMBER][ALGOS_PART])(t_env *, int);
-
 //	WALL	////////////////////////////////////////////////////////////////////
 
 t_wall_status	check_argv(t_push_swap *p);
 
 //	MOVES	////////////////////////////////////////////////////////////////////
 
-int		extract_from_stack(int *tab, int *head, int *size);
-void	push_to_stack(int *tab, int head, int *size, int elt);
-void	push(t_env *env, char c, int to_print);
-void	reverse_rotate(t_env *env, char c, int to_print);
-void	rotate(t_env *env, char c, int to_print);
-void	swap(t_env *env, char c, int to_print);
+void	push(t_stack *s1, t_stack *s2, t_bool print_move);
+void	reverse_rotate(t_stack *s1, t_stack *s2, t_bool print_move);
+void	rotate(t_stack *s1, t_stack *s2, t_bool print_move);
+void	swap(t_stack *s1, t_stack *s2, t_bool print_move);
 
 //	INIT	////////////////////////////////////////////////////////////////////
 
-t_env	*create_env(void);
+t_env		*create_env(void);
 t_push_swap	*create_push_swap(int argc, char **argv);
-t_stack	*create_stack(int size, char identifier);
-t_stack	*feed_stack(
-	t_stack *stack, t_stack_food_type type, void *content, int size);
-t_stack	*sort_and_replace_by_index(t_stack *dest, t_stack *src, int size);
-void	selection_sort(int *list, int length);
-int	getpos(int *stack, int value, int size);
-int	is_sorted(t_env *env);
+t_stack		*create_stack(int size, char identifier);
+t_stack		*feed_stack(t_stack *stack, t_stack_food_type type, void *content, int size);
+t_stack		*sort_and_replace_by_index(t_stack *dest, t_stack *src, int size);
+void		selection_sort(int *list, int length);
+int			getpos(t_stack *s, int value);
+int			getval(t_stack *s, int pos, int offset);
+int			is_sorted(t_env *env);
+t_stack		*get_stack_by_id(t_env *env, char identifier);
+
+int			sort_2(t_stack *s1, t_bool emulation);
+int			sort_3(t_stack *s1, t_bool emulation);
+
+t_env		*create_emulation(t_env *env);
+int			bucket_sort(t_push_swap *p);
+
+void		display_stack(t_stack *s, int indents, t_bool is_first);
+void		display_env(t_env *e, int indents, t_bool is_first);
+void		display_push_swap(t_push_swap *p);
+
+int			*get_bucket_composition(t_stack *s, int bucket_offset, int bucket_size, int *pushed);
+void		end_everything(t_push_swap *p, t_bool exit_program, int exit_status);
 
 #endif

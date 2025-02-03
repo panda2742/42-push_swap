@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:36:03 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/31 11:43:08 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 13:40:12 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_stack	*create_stack(int size, char identifier)
 {
 	t_stack	*stack;
+	int		i;
 	
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
@@ -23,7 +24,13 @@ t_stack	*create_stack(int size, char identifier)
 	stack->head = 0;
 	stack->identifier = identifier;
 	stack->next = NULL;
-	stack->tab = NULL;
+	stack->tab = malloc(size * sizeof(int));
+	if (!stack->tab)
+		return (stack);
+	i = -1;
+	while (++i < stack->size)
+		stack->tab[i] = 0;
+	return (stack);
 }
 
 t_stack	*feed_stack(
@@ -56,8 +63,22 @@ t_stack	*sort_and_replace_by_index(t_stack *dest, t_stack *src, int size)
 	i = -1;
 	while (++i < size)
 	{
-		src->tab[getpos(src->tab, dest->tab[i], size)] = i;
+		src->tab[getpos(src, dest->tab[i])] = i;
 		dest->tab[i] = i;
 	}
 	return (dest);
+}
+
+t_stack	*get_stack_by_id(t_env *env, char identifier)
+{
+	t_stack	*s;
+
+	s = env->stacks[0];
+	while (s)
+	{
+		if (s->identifier == identifier)
+			return (s);
+		s = s->next;
+	}
+	return (NULL);
 }
