@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:36:03 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 13:40:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 20:02:52 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ t_stack	*feed_stack(
 {
 	int	i;
 
-	stack->tab = malloc(stack->size * sizeof(int));
-	if (!stack->tab)
-		return (NULL);
 	i = -1;
 	while (++i < size && i < stack->size)
 	{

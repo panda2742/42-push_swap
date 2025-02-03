@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:05:29 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 19:09:05 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:48:04 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	display_push_swap(t_push_swap *p)
 void	end_everything(t_push_swap *p, t_bool exit_program, int exit_status)
 {
 	t_stack	*elt;
+	t_stack	*next;
+
 	if (p->env)
 	{
 		if (!p->is_in_stackmem)
@@ -100,8 +102,11 @@ void	end_everything(t_push_swap *p, t_bool exit_program, int exit_status)
 			{
 				if (elt->tab)
 					free(elt->tab);
-				elt = elt->next;
+				next = elt->next;
+				free(elt);
+				elt = next;
 			}
+			free(p->env->stacks);
 		}
 		free(p->env);
 	}
