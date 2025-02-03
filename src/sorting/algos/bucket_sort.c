@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 09:23:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 12:58:43 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:03:28 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	bucket_sort(t_push_swap *p)
 	int	max_moves;
 	int	i;
 
+	(void)max_buckets;
 	buckets = 0;
 	max_buckets = 0;
 	max_moves = 65000;
@@ -28,6 +29,7 @@ int	bucket_sort(t_push_swap *p)
 		buckets = 2;
 		moves = 0;
 		i = -1;
+		(void)i;
 		if (moves < max_moves)
 		{
 			max_moves = moves;

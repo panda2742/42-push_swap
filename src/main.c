@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 15:53:24 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:09:38 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ static void	_wall_handler(t_push_swap *p)
 	p->env->stack_size = 0;
 	p->wall_status = check_argv(p);
 	if (p->wall_status == WALL_AVOID)
-		_exit_program(p, EXIT_FAILURE);
+		end_everything(p, true, EXIT_FAILURE);
 	if (p->wall_status == WALL_ERROR)
 	{
 		ft_printf("Error\n");
-		_exit_program(p, EXIT_FAILURE);
+		end_everything(p, true, EXIT_FAILURE);
 	}
 }
 
