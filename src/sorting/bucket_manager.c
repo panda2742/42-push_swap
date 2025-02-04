@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:16:11 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 17:22:50 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:08:47 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_bucket	*append_bucket(t_stack_buckets *parent, int *composition, int size)
 		return (NULL);
 	bucket->composition = composition;
 	bucket->size = size;
-	bucket->moves = 0;
 	bucket->next = NULL;
 	if (!parent->buckets)
 	{

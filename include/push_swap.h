@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 19:07:01 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:08:38 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct	s_bucket
 
 typedef struct	s_stack_buckets
 {
+	int			total_moves;
 	t_bucket	**buckets;
 }	t_stack_buckets;
 
