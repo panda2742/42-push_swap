@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 09:23:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 17:26:33 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:48:38 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ int	bucket_sort(t_push_swap *p)
 	t_stack_buckets	*sb;
 	t_stack_buckets	*min_sb;
 	int				buckets;
-	int				bucket_size;
 	int				moves;
 
 	min_sb = NULL;
 	buckets = 0;
 	while (++buckets < p->env->stack_size / 2)
 	{
-		bucket_size = p->env->stack_size / buckets;
 		sb = calc_bucket_sort(create_stack_buckets(), p, buckets);
 		if (!min_sb)
 			min_sb = sb;
