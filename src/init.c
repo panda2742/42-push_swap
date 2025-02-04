@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:05:29 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 18:49:00 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:58:52 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,13 @@ void	display_stack_bucket(t_stack_buckets *sb)
 	int			j;
 
 	printf(YELLOW "[STACK'S BUCKETS]\n" RESET);
-	printf("│ Moves: %d\n", sb->total_moves);
 	i = 0;
 	if (sb->buckets)
 	{
 		b = sb->buckets[0];
 		while (b)
 		{
-			printf("│ Bucket %d: %d⇅ ", i, b->moves);
+			printf("│ %d:\t", i);
 			j = -1;
 			while (++j < b->size)
 				printf("%d ", b->composition[j]);

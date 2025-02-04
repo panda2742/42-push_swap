@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 18:47:27 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 18:52:31 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	// Leaks checks
 	const char command[50];
 	int	pid = getpid();
-	sprintf((char *)command, "leaks %d > memory_traces/%d.trace", pid, pid);
+	sprintf((char *)command, "leaks %d", pid);
 	p = create_push_swap(argc, argv);
 	if (!p)
 		return (EXIT_FAILURE);
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	_sort_handler(p);
 	// display_push_swap(p);
 	end_everything(p, false, EXIT_SUCCESS);
-	system(command);
+	// system(command);
 	return (EXIT_SUCCESS);
 }
 
