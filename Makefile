@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/04 11:21:08 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/04 21:27:55 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ override	SRCS		:=	$(addprefix env/,$(SRC_ENV)) \
 							$(addprefix moves/,$(SRC_MOVES)) \
 							$(addprefix sorting/,$(SRC_SORTING)) \
 							$(addprefix wall/,$(SRC_WALL)) \
-							init main
+							debug init main
 override	SRC			:=	$(addprefix $(SRC_DIR),$(addsuffix .c,$(SRCS)))
 override	OBJ			:=	$(patsubst $(SRC_DIR)%.c,$(BUILD_DIR)%.o,$(SRC))
 override	DEPS		:=	$(patsubst %.o,%.d,$(OBJ))
@@ -72,5 +72,9 @@ re: fclean
 
 $(DIRS):
 	@mkdir -p $@
+
+.PHONY : norm
+norm:
+	norminette $(SRC_DIR) include
 
 -include $(DEPS)

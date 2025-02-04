@@ -6,13 +6,14 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:44:43 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 10:54:08 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 21:22:19 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	*get_bucket_composition(t_stack *s, int bucket_offset, int bucket_size, int *pushed)
+int	*get_bucket_composition(
+	t_stack *s, int bucket_offset, int bucket_size, int *pushed)
 {
 	int	*elements;
 	int	i;

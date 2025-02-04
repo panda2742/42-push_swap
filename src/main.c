@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 18:52:31 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 21:23:27 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ int	main(int argc, char **argv)
 	t_env		*p_env;
 	t_push_swap	*p;
 
-	// Leaks checks
-	const char command[50];
-	int	pid = getpid();
-	sprintf((char *)command, "leaks %d", pid);
 	p = create_push_swap(argc, argv);
 	if (!p)
 		return (EXIT_FAILURE);
@@ -35,9 +31,7 @@ int	main(int argc, char **argv)
 	_wall_handler(p);
 	_stack_handler(p);
 	_sort_handler(p);
-	// display_push_swap(p);
 	end_everything(p, false, EXIT_SUCCESS);
-	// system(command);
 	return (EXIT_SUCCESS);
 }
 
@@ -65,7 +59,7 @@ static void	_stack_handler(t_push_swap *p)
 		end_everything(p, true, EXIT_FAILURE);
 	b = create_stack(p->env->stack_size, 'b');
 	if (!b)
-		end_everything(p, true , EXIT_FAILURE);
+		end_everything(p, true, EXIT_FAILURE);
 	a = feed_stack(a, string_stack, p->env->stack_str, p->env->stack_size);
 	c = create_stack(p->env->stack_size, 'c');
 	if (!c)

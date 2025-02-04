@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:45:14 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 10:57:42 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 21:23:36 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ void	swap(t_stack *s1, t_stack *s2, t_bool print_move)
 	s1->tab[s1->head] = s1->tab[i_to_swap];
 	s1->tab[i_to_swap] = tmp;
 }
-

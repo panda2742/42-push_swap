@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:36:03 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 20:02:52 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 21:24:03 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack	*create_stack(int size, char identifier)
 {
 	t_stack	*stack;
 	int		i;
-	
+
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
