@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:05:29 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 19:48:04 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 17:12:26 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,18 @@ void	display_stack(t_stack *s, int indents, t_bool is_first)
 
 	printf("%.*s", indents, SPACES);
 	if (indents && is_first)
-		printf("\\");
+		printf("└—");
+	else
+		printf("  ");
 	printf(BLUE "[Stack %p {%c}]\n" RESET, s, s->identifier);
-	printf("%.*s| Head:\t%d\n", indents + 1, SPACES, s->head);
-	printf("%.*s| Size:\t%d\n", indents + 1, SPACES, s->size);
-	printf("%.*s| Content:\t", indents + 1, SPACES);
+	printf("%.*s│ Head:\t%d\n", indents + 2, SPACES, s->head);
+	printf("%.*s│ Size:\t%d\n", indents + 2, SPACES, s->size);
+	printf("%.*s│ Content:\t", indents + 2, SPACES);
 	i = -1;
 	while (++i < s->size)
 		printf("%d ", getval(s, s->head, i));
 	printf("\n");
-	printf("%.*s| Next:\t%p\n", indents + 1, SPACES, s->next);
+	printf("%.*s└ Next:\t%p\n", indents + 2, SPACES, s->next);
 }
 
 void	display_env(t_env *e, int indents, t_bool is_first)
@@ -51,25 +53,27 @@ void	display_env(t_env *e, int indents, t_bool is_first)
 	t_stack	*s;
 
 	printf("%.*s", indents, SPACES);
-	if (indents && is_first)
-		printf("\\");
+	if (indents || is_first)
+		printf("└—");
+	else
+		printf("  ");
 	printf(GREEN "[Environment %p]\n" RESET, e);
-	printf("%.*s| Is a copy: ", indents + 1, SPACES);
+	printf("%.*s│ Is a copy: ", indents + 2, SPACES);
 	if (e->is_copy)
 		printf(GREEN "true\n" RESET);
 	else
 		printf(RED "false\n" RESET);
-	printf("%.*s| Stack size:\t%d\n", indents + 1, SPACES, e->stack_size);
-	printf("%.*s| Content:\t", indents + 1, SPACES);
+	printf("%.*s│ Stack size:\t%d\n", indents + 2, SPACES, e->stack_size);
+	printf("%.*s│ Content:\t", indents + 2, SPACES);
 	i = -1;
 	while (++i < e->stack_size)
 		printf("%s ", e->stack_str[i]);
 	printf("\n");
-	printf("%.*s| Stacks:\n", indents + 1, SPACES);
+	printf("%.*s│ Stacks:\n", indents + 2, SPACES);
 	s = e->stacks[0];
 	while (s)
 	{
-		display_stack(s, indents + 1, (int)(s == e->stacks[0]));
+		display_stack(s, indents + 2, (int)(s == e->stacks[0]));
 		s = s->next;
 	}
 }
@@ -77,13 +81,42 @@ void	display_env(t_env *e, int indents, t_bool is_first)
 void	display_push_swap(t_push_swap *p)
 {
 	printf(MAGENTA "[Push Swap %p]\n" RESET, p);
-	printf("%.*s| Stack in heap memory: ", 1, SPACES);
+	printf("%.*s│ Stack in heap memory: ", 0, SPACES);
 	if (!p->is_in_stackmem)
 		printf(GREEN "true\n" RESET);
 	else
 		printf(RED "false\n" RESET);
-	printf("%.*s| Wall status:\t%d\n", 1, SPACES, p->wall_status);
-	display_env(p->env, 1, true);
+	printf("%.*s│ Wall status:\t%d\n", 0, SPACES, p->wall_status);
+	display_env(p->env, 0, true);
+}
+
+void	display_stack_bucket(t_stack_buckets *sb)
+{
+	t_bucket	*b;
+	int			i;
+	int			j;
+
+	printf(YELLOW "[STACK'S BUCKETS]\n" RESET);
+	printf("│ Moves: %d\n", sb->total_moves);
+	i = 0;
+	if (sb->buckets)
+	{
+		b = sb->buckets[0];
+		while (b)
+		{
+			printf("└ Bucket %d: %d⇅ ", i, b->moves);
+			j = -1;
+			while (++j < b->size)
+				printf("%d ", b->composition[j]);
+			printf("\n");
+			b = b->next;
+			i++;
+		}
+	}
+	if (!sb->buckets)
+		printf("└ ");
+	if (!sb->buckets)
+		printf(RED "[No buckets]\n" RESET);
 }
 
 void	end_everything(t_push_swap *p, t_bool exit_program, int exit_status)

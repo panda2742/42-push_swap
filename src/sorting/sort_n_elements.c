@@ -6,11 +6,11 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 00:00:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 11:01:27 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 09:29:03 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	sort_2(t_stack *s1, t_bool emulation)
 {

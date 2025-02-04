@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 15:52:15 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 17:26:11 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,20 @@ typedef struct s_push_swap
 	t_env			*env;
 }	t_push_swap;
 
+typedef struct	s_bucket
+{
+	int				*composition;
+	int				size;
+	int				moves;
+	struct s_bucket	*next;
+}	t_bucket;
+
+typedef struct	s_stack_buckets
+{
+	t_bucket	**buckets;
+	int			total_moves;
+}	t_stack_buckets;
+
 //	WALL	////////////////////////////////////////////////////////////////////
 
 t_wall_status	check_argv(t_push_swap *p);
@@ -96,8 +110,14 @@ int			bucket_sort(t_push_swap *p);
 void		display_stack(t_stack *s, int indents, t_bool is_first);
 void		display_env(t_env *e, int indents, t_bool is_first);
 void		display_push_swap(t_push_swap *p);
+void		display_stack_bucket(t_stack_buckets *sb);
 
 int			*get_bucket_composition(t_stack *s, int bucket_offset, int bucket_size, int *pushed);
 void		end_everything(t_push_swap *p, t_bool exit_program, int exit_status);
+
+t_stack_buckets	*create_stack_buckets(void);
+t_stack_buckets	*calc_bucket_sort(t_stack_buckets *sb, t_push_swap *p, int buckets);
+t_bucket		*append_bucket(t_stack_buckets *parent, int *composition, int size);
+void			empty_stack_buckets(t_stack_buckets *sb);
 
 #endif

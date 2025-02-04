@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/03 21:12:31 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/04 17:20:13 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	main(int argc, char **argv)
 	_wall_handler(p);
 	_stack_handler(p);
 	_sort_handler(p);
-	display_push_swap(p);
+	// display_push_swap(p);
 	end_everything(p, false, EXIT_SUCCESS);
-	system(command);
+	// system(command);
 	return (EXIT_SUCCESS);
 }
 
