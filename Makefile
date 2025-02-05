@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/04 21:27:55 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/05 16:50:24 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,17 @@ MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
 override	SRC_ENV		:=	env_manager stack_getter stack_manager
-override	SRC_MOVES	:=	push reverse_rotate rotate swap
+override	SRC_MOVES	:=	moves_manager push reverse_rotate rotate swap
+override	SRC_MT		:=	big_bang big_rip
 override	SRC_SORTING	:=	bucket_manager bucket_sort_utils bucket_sort \
 							is_sorted selection_sort sort_n_elements
 override	SRC_WALL	:=	check_argv
 override	SRCS		:=	$(addprefix env/,$(SRC_ENV)) \
 							$(addprefix moves/,$(SRC_MOVES)) \
+							$(addprefix multiverse_theory/,$(SRC_MT)) \
 							$(addprefix sorting/,$(SRC_SORTING)) \
 							$(addprefix wall/,$(SRC_WALL)) \
-							debug init main
+							debug main
 override	SRC			:=	$(addprefix $(SRC_DIR),$(addsuffix .c,$(SRCS)))
 override	OBJ			:=	$(patsubst $(SRC_DIR)%.c,$(BUILD_DIR)%.o,$(SRC))
 override	DEPS		:=	$(patsubst %.o,%.d,$(OBJ))

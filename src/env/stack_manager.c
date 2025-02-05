@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:36:03 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 21:24:03 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/05 16:16:26 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,21 @@ t_stack	*get_stack_by_id(t_env *env, char identifier)
 		s = s->next;
 	}
 	return (NULL);
+}
+
+t_stack	*copy_stack(t_stack *stack)
+{
+	t_stack	*copy;
+	int		i;
+	
+	copy = create_stack(stack->size, stack->identifier);
+	copy->head = stack->head;
+	copy->next = NULL;
+	copy->tab = malloc(stack->size * sizeof(int));
+	if (!copy->tab)
+		return (copy);
+	i = -1;
+	while (++i < copy->size)
+		copy->tab[i] = stack->tab[i];
+	return (copy);
 }

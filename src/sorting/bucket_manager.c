@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:16:11 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 09:35:21 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/05 12:05:56 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_bucket	*append_bucket(t_stack_buckets *parent, int *composition, int size)
 	bucket->composition = composition;
 	bucket->size = size;
 	bucket->next = NULL;
+	bucket->moves = NULL;
 	if (!parent->buckets)
 	{
 		parent->buckets = malloc(sizeof(t_bucket *));

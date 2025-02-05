@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:27:02 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 21:29:56 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/05 17:23:58 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	display_env(t_env *e, int indents, t_bool is_first)
 {
 	int		i;
 	t_stack	*s;
+	t_move	*flow;
 
 	if (indents || is_first)
 		printf("%.*s└—", indents, SPACES);
@@ -52,6 +53,13 @@ void	display_env(t_env *e, int indents, t_bool is_first)
 	i = -1;
 	while (++i < e->stack_size)
 		printf("%s ", e->stack_str[i]);
+	printf("\n%.*s│ Resolutions:\n%.*s│ ", indents + 2, SPACES, indents + 2, SPACES);
+	flow = e->moves[0];
+	while (flow)
+	{
+		printf("%s ", move_str(flow->move));
+		flow = flow->next;
+	}
 	printf("\n%.*s│ Stacks:\n", indents + 2, SPACES);
 	s = e->stacks[0];
 	while (s)
@@ -73,7 +81,7 @@ void	display_push_swap(t_push_swap *p)
 	display_env(p->env, 0, true);
 }
 
-void	display_stack_bucket(t_stack_buckets *sb)
+void	display_stack_buckets(t_stack_buckets *sb)
 {
 	t_bucket	*b;
 	int			i;
@@ -90,7 +98,7 @@ void	display_stack_bucket(t_stack_buckets *sb)
 			printf("│     %d:\t", i);
 			j = -1;
 			while (++j < b->size)
-				printf("%d ", b->composition[j]);
+				printf("%*.s%d ", b->composition[j] < 10, SPACES, b->composition[j]);
 			printf("\n");
 			b = b->next;
 			i++;
