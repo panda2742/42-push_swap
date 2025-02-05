@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:16:11 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/04 19:08:47 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/05 09:35:21 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	empty_stack_buckets(t_stack_buckets *sb)
 			free(b);
 			b = next;
 		}
+		free(sb->buckets);
 	}
 	free(sb);
 }
