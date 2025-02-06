@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/05 16:50:24 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/06 14:50:37 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ override	SRC_ENV		:=	env_manager stack_getter stack_manager
 override	SRC_MOVES	:=	moves_manager push reverse_rotate rotate swap
 override	SRC_MT		:=	big_bang big_rip
 override	SRC_SORTING	:=	bucket_manager bucket_sort_utils bucket_sort \
-							is_sorted selection_sort sort_n_elements
+							utils/is_sorted utils/selection_sort \
+							utils/sort_n_elements
 override	SRC_WALL	:=	check_argv
 override	SRCS		:=	$(addprefix env/,$(SRC_ENV)) \
 							$(addprefix moves/,$(SRC_MOVES)) \
@@ -77,6 +78,6 @@ $(DIRS):
 
 .PHONY : norm
 norm:
-	norminette $(SRC_DIR) include
+	norminette $(SRC_DIR) include/
 
 -include $(DEPS)

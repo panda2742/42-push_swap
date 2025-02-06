@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 09:23:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:23:03 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:52:54 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_stack_buckets	*calc_bucket_sort(
 	{
 		b = append_bucket(sb, NULL, 0);
 		b->composition = get_bucket_composition(
-							a, i, p->env->stack_size, buckets, &b->size);
+				i, p->env->stack_size, buckets, &b->size);
 	}
 	return (sb);
 }
@@ -72,7 +72,8 @@ static int	_get_nearest_element(t_stack *s, t_bucket *b)
 	while (++i < b->size)
 	{
 		current[0] = b->composition[i];
-		current[1] = distance_to_pos(s->size, s->head, getpos(s, b->composition[i]));
+		current[1] = distance_to_pos(
+				s->size, s->head, getpos(s, b->composition[i]));
 		if (ft_abs(current[1]) < ft_abs(nearest[1]))
 		{
 			nearest[0] = current[0];

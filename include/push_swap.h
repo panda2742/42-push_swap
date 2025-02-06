@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:30:40 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:48:03 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define SPACES "                                                              "
 
 # ifndef DEBUG
-#  define DEBUG 0
+#  define DEBUG 1
 # endif
 
 typedef enum e_move_id
@@ -147,7 +147,6 @@ void			display_push_swap(t_push_swap *p);
 void			display_stack_buckets(t_stack_buckets *sb);
 
 int				*get_bucket_composition(
-					t_stack *s,
 					int bucket_offset,
 					int stack_size,
 					int buckets,

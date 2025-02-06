@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   selection_sort.c                                   :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 15:36:34 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/29 15:49:46 by ehosta           ###   ########.fr       */
+/*   Created: 2025/01/24 17:27:35 by ehosta            #+#    #+#             */
+/*   Updated: 2025/02/06 14:46:44 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../../include/push_swap.h"
 
-void	selection_sort(int *list, int length)
+int	is_sorted(t_env *env)
 {
-	int	i;
-	int	j;
-	int	min;
-	int	tmp;
+	t_stack	*a;
+	t_stack	*c;
+	int		i;
+	int		j;
 
+	a = env->stacks[0];
+	c = a->next->next;
+	if (a->size != env->stack_size)
+		return (0);
 	i = -1;
-	while (++i < length - 1)
+	j = a->head - 1;
+	while (++i < env->stack_size)
 	{
-		min = i;
-		j = i;
-		while (++j < length)
-		{
-			if (list[j] < list[min])
-				min = j;
-		}
-		if (min != i)
-		{
-			tmp = list[min];
-			list[min] = list[i];
-			list[i] = tmp;
-		}
+		++j;
+		if (j == a->head)
+			j = 0;
+		if (a->tab[j] != c->tab[i])
+			return (0);
 	}
+	return (1);
 }

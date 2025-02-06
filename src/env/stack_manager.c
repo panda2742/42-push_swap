@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:36:03 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 16:16:26 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:51:17 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_stack	*copy_stack(t_stack *stack)
 {
 	t_stack	*copy;
 	int		i;
-	
+
 	copy = create_stack(stack->size, stack->identifier);
 	copy->head = stack->head;
 	copy->next = NULL;

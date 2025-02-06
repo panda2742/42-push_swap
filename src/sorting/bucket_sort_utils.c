@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:44:43 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 10:54:32 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:53:00 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	_get_size(int stack_size, int buckets, int offset);
 
 int	*get_bucket_composition(
-	t_stack *s, int bucket_offset, int stack_size, int buckets, int *pushed)
+	int bucket_offset, int stack_size, int buckets, int *pushed)
 {
 	int	*elements;
 	int	i;
@@ -27,9 +27,9 @@ int	*get_bucket_composition(
 		return (NULL);
 	*pushed = 0;
 	i = -1;
-	while (++i < bucket_size && (bucket_size * bucket_offset + i) < s->size)
+	while (++i < bucket_size && (bucket_size * bucket_offset + i) < stack_size)
 	{
-		elements[i] = s->size - (bucket_size * bucket_offset + i + 1);
+		elements[i] = stack_size - (bucket_size * bucket_offset + i + 1);
 		*pushed += 1;
 	}
 	elements[i] = -1;
