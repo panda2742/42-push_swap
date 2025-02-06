@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:48:03 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 15:27:25 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,8 +156,6 @@ void			end_everything(
 					t_push_swap *p, t_bool exit_program, int exit_status);
 
 t_stack_buckets	*create_stack_buckets(void);
-t_stack_buckets	*calc_bucket_sort(
-					t_stack_buckets *sb, t_push_swap *p, int buckets);
 t_bucket		*append_bucket(
 					t_stack_buckets *parent, int *composition, int size);
 void			empty_stack_buckets(t_stack_buckets *sb);
