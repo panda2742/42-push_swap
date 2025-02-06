@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 09:23:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 17:14:03 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:23:03 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,17 @@
 static int	_get_nearest_element(t_stack *s, t_bucket *b);
 t_bucket	*_kick_bucket_from_stack(t_stack *s, t_bucket *b);
 
-int	bucket_sort(t_push_swap *p)
+void	bucket_sort(t_push_swap *p, int buckets)
 {
 	t_stack_buckets	*sb;
-	t_stack_buckets	*min_sb;
-	int				buckets;
-	int				moves;
+	t_move			*a;
 
-	min_sb = NULL;
-	buckets = 0;
-	while (++buckets < p->env->stack_size / 2)
-	{
-		sb = calc_bucket_sort(create_stack_buckets(), p, buckets);
-		if (!min_sb)
-			min_sb = sb;
-		if (!min_sb || min_sb == sb)
-			continue ;
-		if (min_sb->total_moves <= sb->total_moves)
-		{
-			empty_stack_buckets(min_sb);
-			min_sb = sb;
-			continue ;
-		}
-		empty_stack_buckets(sb);
-	}
-	moves = min_sb->total_moves;
-	empty_stack_buckets(min_sb);
-	return (moves);
+	sb = create_stack_buckets();
+	sb = calc_bucket_sort(sb, p, buckets);
+	display_stack_buckets(sb);
+	a = create_move(NULL, SA);
+	p->env->moves[0] = a;
+	empty_stack_buckets(sb);
 }
 
 t_stack_buckets	*calc_bucket_sort(
@@ -59,7 +43,6 @@ t_stack_buckets	*calc_bucket_sort(
 		b->composition = get_bucket_composition(
 							a, i, p->env->stack_size, buckets, &b->size);
 	}
-	display_stack_buckets(sb);
 	return (sb);
 }
 

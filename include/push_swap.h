@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 17:20:49 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:30:40 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "../libft/include/libft.h"
 
 # define SPACES "                                                              "
+
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 typedef enum e_move_id
 {
@@ -29,7 +33,7 @@ typedef enum e_move_id
 	RR,
 	RRA,
 	RRB,
-	RRR
+	RRR,
 }			t_move_id;
 
 typedef struct s_move
@@ -135,7 +139,7 @@ int				sort_2(t_env *env);
 int				sort_3(t_env *env);
 
 t_env			*create_emulation(t_env *env);
-int				bucket_sort(t_push_swap *p);
+void			bucket_sort(t_push_swap *p, int buckets);
 
 void			display_stack(t_stack *s, int indents, t_bool is_first);
 void			display_env(t_env *e, int indents, t_bool is_first);
@@ -161,7 +165,8 @@ void			empty_stack_buckets(t_stack_buckets *sb);
 int				distance_to_pos(int size, int cur_pos, int pos);
 
 t_move			*create_moves(t_move_id move_id, t_move *prev);
-t_move			*add_move(t_move *flow, t_move_id move_id);
+t_move			*create_move(t_move *prev, t_move_id move_id);
 char			*move_str(t_move_id move_id);
+int				read_moves_flow(t_env *env, t_move *flow, t_bool print_move);
 
 #endif

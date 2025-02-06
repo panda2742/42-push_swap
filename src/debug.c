@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:27:02 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 17:23:58 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:27:51 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	display_stack(t_stack *s, int indents, t_bool is_first)
 {
 	int	i;
 
+	if (!DEBUG)
+		return ;
 	printf("%.*s", indents, SPACES);
 	if (indents && is_first)
 		printf("└—");
@@ -38,6 +40,8 @@ void	display_env(t_env *e, int indents, t_bool is_first)
 	t_stack	*s;
 	t_move	*flow;
 
+	if (!DEBUG)
+		return ;
 	if (indents || is_first)
 		printf("%.*s└—", indents, SPACES);
 	else
@@ -71,6 +75,8 @@ void	display_env(t_env *e, int indents, t_bool is_first)
 
 void	display_push_swap(t_push_swap *p)
 {
+	if (!DEBUG)
+		return ;
 	printf(MAGENTA "[Push Swap %p]\n" RESET, p);
 	printf("%.*s│ Stack in heap memory: ", 0, SPACES);
 	if (!p->is_in_stackmem)
@@ -87,6 +93,8 @@ void	display_stack_buckets(t_stack_buckets *sb)
 	int			i;
 	int			j;
 
+	if (!DEBUG)
+		return ;
 	printf(YELLOW "[STACK'S BUCKETS]\n" RESET);
 	printf("│ Moves:\t%d\n", sb->total_moves);
 	i = 0;

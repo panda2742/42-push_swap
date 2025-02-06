@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   black_hole.c                                       :+:      :+:    :+:   */
+/*   big_rip.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:46:22 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 12:46:46 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:26:33 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	end_everything(t_push_swap *p, t_bool exit_program, int exit_status)
 {
-	t_stack	*elt;
-	t_stack	*next;
+	void	*elt;
+	void	*next;
 
 	if (p->env)
 	{
@@ -26,13 +26,24 @@ void	end_everything(t_push_swap *p, t_bool exit_program, int exit_status)
 			elt = p->env->stacks[0];
 			while (elt)
 			{
-				if (elt->tab)
-					free(elt->tab);
-				next = elt->next;
+				if (((t_stack *)elt)->tab)
+					free(((t_stack *)elt)->tab);
+				next = ((t_stack *)elt)->next;
 				free(elt);
 				elt = next;
 			}
 			free(p->env->stacks);
+		}
+		if (p->env->moves)
+		{
+			elt = p->env->moves[0];
+			while (elt)
+			{
+				next = ((t_move *)elt)->next;
+				free(elt);
+				elt = next;
+			}
+			free(p->env->moves);
 		}
 		free(p->env);
 	}

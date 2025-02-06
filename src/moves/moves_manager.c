@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:01:09 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/05 17:28:32 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/06 14:09:17 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	read_moves_flow(t_env *env, t_move *flow, t_bool print_move)
 	return (ops);
 }
 
-t_move	*add_move(t_move *flow, t_move_id move_id)
+t_move	*create_move(t_move *prev, t_move_id move_id)
 {
 	t_move	*move;
 	
@@ -52,8 +52,8 @@ t_move	*add_move(t_move *flow, t_move_id move_id)
 		return (NULL);
 	move->move = move_id;
 	move->next = NULL;
-	if (flow)
-		flow->next = move;
+	if (prev)
+		prev->next = move;
 	return (move);
 }
 
@@ -85,11 +85,11 @@ static void	_execute_move(t_stack *a, t_stack *b, t_move_id move_id, t_bool prin
 
 char	*move_str(t_move_id move_id)
 {
-	static char	moves_short[8][2] = {
+	static char	moves_short[8][3] = {
 		"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr"
 		};
-	static char	moves_long[3][3] = {"rra", "rrb", "rrr"};
-	
+	static char	moves_long[3][4] = {"rra", "rrb", "rrr"};
+
 	if (move_id >= RRA)
 		return (moves_long[move_id - 8]);
 	return (moves_short[move_id]);
