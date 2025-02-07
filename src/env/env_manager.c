@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:39:10 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:11:23 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/07 11:21:03 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_env	*create_env(void)
 	env->stack_size = 0;
 	env->stack_str = NULL;
 	env->is_copy = false;
-	env->moves = malloc(sizeof(t_move *));
+	env->moves = NULL;
 	env->stacks = malloc(sizeof(t_stack *));
 	return (env);
 }

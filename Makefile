@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/06 14:50:37 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/07 13:27:10 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
 override	SRC_ENV		:=	env_manager stack_getter stack_manager
-override	SRC_MOVES	:=	moves_manager push reverse_rotate rotate swap
+override	SRC_MOVES	:=	moves_flow moves_manager push reverse_rotate rotate swap
 override	SRC_MT		:=	big_bang big_rip
 override	SRC_SORTING	:=	bucket_manager bucket_sort_utils bucket_sort \
 							utils/is_sorted utils/selection_sort \

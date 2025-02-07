@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 15:27:25 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/07 15:27:28 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ void			display_stack(t_stack *s, int indents, t_bool is_first);
 void			display_env(t_env *e, int indents, t_bool is_first);
 void			display_push_swap(t_push_swap *p);
 void			display_stack_buckets(t_stack_buckets *sb);
+void			display_flow(t_move **flow);
 
 int				*get_bucket_composition(
 					int bucket_offset,
@@ -162,8 +163,12 @@ void			empty_stack_buckets(t_stack_buckets *sb);
 int				distance_to_pos(int size, int cur_pos, int pos);
 
 t_move			*create_moves(t_move_id move_id, t_move *prev);
-t_move			*create_move(t_move *prev, t_move_id move_id);
+t_move			*create_move(t_move_id move_id);
 char			*move_str(t_move_id move_id);
 int				read_moves_flow(t_env *env, t_move *flow, t_bool print_move);
+
+t_move			**create_flow();
+t_move			*append_move(t_move **flow, t_move_id move_id, t_bool init);
+t_move			**concat_flow(t_move **flow1, t_move **flow2, t_bool init);
 
 #endif

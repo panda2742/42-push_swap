@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:27:02 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:27:51 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/07 15:36:01 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	display_stack(t_stack *s, int indents, t_bool is_first)
 		printf("%d ", getval(s, s->head, i));
 	printf("\n");
 	printf("%.*s└ Next:\t%p\n", indents + 2, SPACES, s->next);
+}
+
+void	display_flow(t_move **flow)
+{
+	t_move	*elt;
+
+	elt = flow[0];
+	while (elt)
+	{
+		ft_printf("[%p] %s -> %p ", elt, move_str(elt->move), elt->next);
+		elt = elt->next;
+	}
+	ft_printf("\n");
 }
 
 void	display_env(t_env *e, int indents, t_bool is_first)

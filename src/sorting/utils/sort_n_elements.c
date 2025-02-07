@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 00:00:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:53:03 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/07 13:25:59 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	sort_2(t_env *env)
 {
 	if (get_stack_by_id(env, 'a')->tab[0])
 	{
-		env->moves[0] = create_move(NULL, SA);
+		env->moves[0] = create_move(SA);
 		return (1);
 	}
 	return (0);
@@ -52,9 +52,9 @@ static int	_execute_3s_comb(t_env *env, t_move_id m1, t_move_id m2)
 {
 	t_move	*m;
 
-	m = create_move(NULL, m1);
+	m = create_move(m1);
 	if ((int)m2 != -1)
-		create_move(m, m2);
+		create_move(m2);
 	env->moves[0] = m;
 	return (1 + ((int)m2 != -1));
 }

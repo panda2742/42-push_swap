@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:01:09 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:51:48 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/07 11:21:52 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	read_moves_flow(t_env *env, t_move *flow, t_bool print_move)
 	return (ops);
 }
 
-t_move	*create_move(t_move *prev, t_move_id move_id)
+t_move	*create_move(t_move_id move_id)
 {
 	t_move	*move;
 
@@ -53,8 +53,6 @@ t_move	*create_move(t_move *prev, t_move_id move_id)
 		return (NULL);
 	move->move = move_id;
 	move->next = NULL;
-	if (prev)
-		prev->next = move;
 	return (move);
 }
 
