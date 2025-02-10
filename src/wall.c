@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_argv.c                                       :+:      :+:    :+:   */
+/*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:09:39 by ehosta            #+#    #+#             */
-/*   Updated: 2025/01/29 17:44:39 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 14:32:54 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
 static t_wall_status	_check_stack(t_push_swap *p);
 static int				_check_stack_element(const char *stack_elt);
 static int				_check_value(int value, int sign, char c);
 static int				_check_doubles(t_push_swap *p);
 
-t_wall_status	check_argv(t_push_swap *p)
+t_wall_status	wall(t_push_swap *p)
 {
 	p->argc -= 1;
 	if (p->argc == 0)
 		return (WALL_AVOID);
 	p->argv += 1;
-	p->env->stack_size = 0;
+	p->stack_size = 0;
 	if (p->argc == 1 && ft_strchr(p->argv[0], ' '))
 	{
-		p->env->stack_str = ft_split(p->argv[0], ' ');
-		if (!p->env->stack_str)
+		p->stack_str = ft_split(p->argv[0], ' ');
+		if (!p->stack_str)
 			return (WALL_ERROR);
-		while (p->env->stack_str[p->env->stack_size])
-			p->env->stack_size += 1;
+		while (p->stack_str[p->stack_size])
+			p->stack_size += 1;
 		p->wall_status = WALL_OK;
 		p->is_in_stackmem = false;
 	}
 	else
 	{
-		p->env->stack_str = p->argv;
-		p->env->stack_size = p->argc;
+		p->stack_str = p->argv;
+		p->stack_size = p->argc;
 		p->wall_status = WALL_OK;
 	}
 	return (_check_stack(p));
@@ -48,9 +48,9 @@ static t_wall_status	_check_stack(t_push_swap *p)
 	int	i;
 
 	i = -1;
-	while (++i < p->env->stack_size)
+	while (++i < p->stack_size)
 	{
-		if (!_check_stack_element(p->env->stack_str[i]))
+		if (!_check_stack_element(p->stack_str[i]))
 			return (WALL_ERROR);
 	}
 	if (!_check_doubles(p))
@@ -100,12 +100,12 @@ static int	_check_doubles(t_push_swap *p)
 	int	j;
 
 	i = -1;
-	while (++i < p->env->stack_size)
+	while (++i < p->stack_size)
 	{
 		j = i;
-		while (++j < p->env->stack_size)
+		while (++j < p->stack_size)
 		{
-			if (ft_atoi(p->env->stack_str[i]) == ft_atoi(p->env->stack_str[j]))
+			if (ft_atoi(p->stack_str[i]) == ft_atoi(p->stack_str[j]))
 				return (0);
 		}
 	}

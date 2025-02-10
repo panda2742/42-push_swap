@@ -14,7 +14,12 @@
 		"regex": "c",
 		"utility": "c",
 		"libft.h": "c",
-		"unordered_map": "c"
+		"unordered_map": "c",
+		"list": "c",
+		"ft_array.h": "c",
+		"ft_is.h": "c",
+		"string": "c",
+		"random": "c"
 	},
 	"cmake.sourceDirectory": "/home/ehosta/Documents/push_swap/push_swap_visualizer/build/_deps/sfml-src"
 }

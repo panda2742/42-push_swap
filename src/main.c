@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/06 14:30:35 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 14:48:33 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,71 +18,54 @@ static void	_sort_handler(t_push_swap *p);
 
 int	main(int argc, char **argv)
 {
-	t_env		*p_env;
 	t_push_swap	*p;
 
-	p = create_push_swap(argc, argv);
+	p = init(argc, argv);
 	if (!p)
 		return (EXIT_FAILURE);
-	p_env = create_env();
-	if (!p_env)
-		return (free(p), EXIT_FAILURE);
-	p->env = p_env;
 	_wall_handler(p);
 	_stack_handler(p);
 	_sort_handler(p);
-	end_everything(p, false, EXIT_SUCCESS);
+	terminate(p, false, EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
 
 static void	_wall_handler(t_push_swap *p)
 {
-	p->env->stack_size = 0;
-	p->wall_status = check_argv(p);
+	p->stack_size = 0;
+	p->wall_status = wall(p);
 	if (p->wall_status == WALL_AVOID)
-		end_everything(p, true, EXIT_FAILURE);
+		terminate(p, true, EXIT_FAILURE);
 	if (p->wall_status == WALL_ERROR)
 	{
 		ft_printf("Error\n");
-		end_everything(p, true, EXIT_FAILURE);
+		terminate(p, true, EXIT_FAILURE);
 	}
 }
 
 static void	_stack_handler(t_push_swap *p)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*c;
-
-	a = create_stack(p->env->stack_size, 'a');
-	if (!a)
-		end_everything(p, true, EXIT_FAILURE);
-	b = create_stack(p->env->stack_size, 'b');
-	if (!b)
-		end_everything(p, true, EXIT_FAILURE);
-	a = feed_stack(a, string_stack, p->env->stack_str, p->env->stack_size);
-	c = create_stack(p->env->stack_size, 'c');
-	if (!c)
-		end_everything(p, true, EXIT_FAILURE);
-	c = sort_and_replace_by_index(c, a, p->env->stack_size);
-	b->next = c;
-	a->next = b;
-	p->env->stacks[0] = a;
+	p->a = ft_array_new('a', p->stack_size, ARRAY_INT);
+	if (!p->a)
+		terminate(p, true, EXIT_FAILURE);
+	p->b = ft_array_new('b', p->stack_size, ARRAY_INT);
+	if (!p->b)
+		terminate(p, true, EXIT_FAILURE);
+	p->a = ft_array_fill(p->a, p->stack_str, ARRAY_STRING);
+	p->c = ft_array_new('c', p->stack_size, ARRAY_INT);
+	if (!p->c)
+		terminate(p, true, EXIT_FAILURE);
+	p->c = ft_array_getsorted(p->a, 1);
 }
 
 static void	_sort_handler(t_push_swap *p)
 {
-	t_stack	*a;
-
-	if (is_sorted(p->env))
+	if (ft_issorted(p->a->data, p->a->size))
 		return ;
-	a = get_stack_by_id(p->env, 'a');
-	if (a->size == 2)
-		sort_2(p->env);
-	else if (a->size == 3)
-		sort_3(p->env);
-	else
-		bucket_sort(p, 3);
+	if (p->a->size == 2)
+		sort_2(p);
+	else if (p->a->size == 3)
+		sort_3(p);
 	display_push_swap(p);
-	read_moves_flow(p->env, p->env->moves[0], 1);
+	read_moves_flow(p, true);
 }
