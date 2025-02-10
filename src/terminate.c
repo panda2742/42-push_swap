@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:46:22 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 16:31:49 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 18:39:54 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	terminate(t_push_swap *p, t_bool exit_program, int exit_status)
 		ft_free_strtab(p->stack_str);
 	ft_array_clear(p->a);
 	ft_array_clear(p->b);
+	ft_array_clear(p->c);
 	if (p->instructions)
 	{
 		_free_instructions(p);

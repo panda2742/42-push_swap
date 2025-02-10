@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:01:09 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 16:57:46 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 18:06:28 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static void	_execute_move(
 	else if (move_id == SS)
 		swap(a, b, print_move);
 	else if (move_id == PA)
-		push(a, NULL, print_move);
+		push(a, b, print_move);
 	else if (move_id == PB)
-		push(b, NULL, print_move);
+		push(b, a, print_move);
 	else if (move_id == RA)
 		rotate(a, NULL, print_move);
 	else if (move_id == RB)

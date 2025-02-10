@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 21:27:02 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 15:02:28 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 18:28:41 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ void	display_push_swap(t_push_swap *p)
 		instr = instr->next;
 	}
 	printf("\n │ Stacks:\n");
-	ft_array_print(p->a);
-	ft_array_print(p->b);
+	ft_array_prints(p->a, p->b);
 }

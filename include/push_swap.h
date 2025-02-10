@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 17:39:14 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 18:08:44 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/include/libft.h"
 
 # ifndef DEBUG
-#  define DEBUG false
+#  define DEBUG true
 # endif
 
 typedef enum e_move_id
@@ -73,8 +73,9 @@ void	rotate(t_array *arr1, t_array *arr2, t_bool print_move);
 void	reverse_rotate(t_array *arr1, t_array *arr2, t_bool print_move);
 void	push(t_array *arr1, t_array *arr2, t_bool print_move);
 
-int	sort_2(t_push_swap *p);
-int	sort_3(t_push_swap *p);
+void	sort_2(t_push_swap *p);
+void	sort_3(t_push_swap *p);
+void	sort_big(t_push_swap *p);
 
 void	terminate(t_push_swap *p, t_bool exit_program, int exit_status);
 t_wall_status	wall(t_push_swap *p);
