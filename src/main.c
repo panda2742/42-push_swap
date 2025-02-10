@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 14:48:33 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 17:38:54 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	_sort_handler(t_push_swap *p)
 		sort_2(p);
 	else if (p->a->size == 3)
 		sort_3(p);
-	display_push_swap(p);
 	read_moves_flow(p, true);
+	if (DEBUG)
+		ft_array_print(p->a);
 }

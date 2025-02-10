@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 00:00:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 15:02:53 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 16:41:13 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ static int	_execute_3s_comb(t_push_swap *p, t_move_id m1, t_move_id m2);
 int	sort_2(t_push_swap *p)
 {
 	if (((int *)p->a->data)[0])
-	{
-		p->instructions[0] = create_move(SA);
-		return (1);
-	}
+		return (create_instr_flow(p, SA), 1);
 	return (0);
 }
 
@@ -29,12 +26,10 @@ int	sort_3(t_push_swap *p)
 	int	*atab;
 	int	first;
 	int	second;
-	int	third;
 
 	atab = (int *)p->a->data;
 	first = atab[0];
 	second = atab[1];
-	third = atab[2];
 	if (first == 2 && second == 1)
 		return (_execute_3s_comb(p, RA, SA));
 	if (first == 2 && second == 0)
@@ -50,11 +45,8 @@ int	sort_3(t_push_swap *p)
 
 static int	_execute_3s_comb(t_push_swap *p, t_move_id m1, t_move_id m2)
 {
-	t_move	*m;
-
-	m = create_move(m1);
+	create_instr_flow(p, m1);
 	if ((int)m2 != -1)
-		m->next = create_move(m2);
-	p->moves[0] = m;
+		create_instr(p, m2);
 	return (1 + ((int)m2 != -1));
 }

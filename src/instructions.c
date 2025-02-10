@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:13 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 14:37:39 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 16:43:03 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	swap(t_array *arr1, t_array *arr2, t_bool print_move)
 	int	i_to_swap;
 	int	tmp;
 
-	if (arr1)
+	if (arr2)
 	{
 		ft_printf("ss\n");
 		swap(arr1, NULL, false);
@@ -59,7 +59,7 @@ void	rotate(t_array *arr1, t_array *arr2, t_bool print_move)
 
 void	reverse_rotate(t_array *arr1, t_array *arr2, t_bool print_move)
 {
-	if (arr1)
+	if (arr2)
 	{
 		ft_printf("rrr\n");
 		reverse_rotate(arr1, NULL, false);

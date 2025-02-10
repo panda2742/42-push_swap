@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:05:29 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 14:32:35 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 16:17:40 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_push_swap	*init(int argc, char **argv)
 	push_swap->argv = argv;
 	push_swap->is_in_stackmem = true;
 	push_swap->wall_status = WALL_OK;
+	push_swap->instructions = NULL;
 	return (push_swap);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 15:02:43 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/10 17:39:14 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/include/libft.h"
 
 # ifndef DEBUG
-#  define DEBUG 1
+#  define DEBUG false
 # endif
 
 typedef enum e_move_id
@@ -78,5 +78,8 @@ int	sort_3(t_push_swap *p);
 
 void	terminate(t_push_swap *p, t_bool exit_program, int exit_status);
 t_wall_status	wall(t_push_swap *p);
+
+t_instruction	*create_instr_flow(t_push_swap *p, t_move_id move_id);
+t_instruction	*create_instr(t_push_swap *p, t_move_id move_id);
 
 #endif
