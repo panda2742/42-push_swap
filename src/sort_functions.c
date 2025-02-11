@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:21:04 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/11 16:29:51 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/11 21:53:30 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	jump_to_val(t_push_swap *p, t_array *arr, int val)
 	int		path;
 	void	(*move_fn)(t_push_swap *, t_array *, t_array *, t_bool);
 
+	if (val == ((int *)arr->data)[arr->head])
+		return ;
 	path = ft_array_posdist(arr->head, ft_array_getpos(arr, val), arr->size);
 	move_fn = rotate;
 	if (ft_sign(path) == -1)
