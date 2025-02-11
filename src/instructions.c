@@ -6,26 +6,51 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:13 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 18:04:53 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/11 11:18:12 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap(t_array *arr1, t_array *arr2, t_bool print_move)
+t_instruction	*create_instr(t_push_swap *p, t_move_id move_id)
+{
+	t_instruction	*instr;
+	t_instruction	*prev;
+
+	instr = malloc(sizeof(t_instruction));
+	if (!instr)
+		return (NULL);
+	instr->move_id = move_id;
+	instr->next = NULL;
+	if (!p->instructions)
+	{
+		p->instructions = malloc(sizeof(t_instruction *));
+		if (!p->instructions)
+			return (free(instr), NULL);
+		p->instructions[0] = instr;
+		return (instr);
+	}
+	prev = p->instructions[0];
+	while (prev->next)
+		prev = prev->next;
+	prev->next = instr;
+	return (instr);
+}
+
+void	swap(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 {
 	int	i_to_swap;
 	int	tmp;
 
 	if (arr2)
 	{
-		ft_printf("ss\n");
-		swap(arr1, NULL, false);
-		swap(arr2, NULL, false);
+		create_instr(p, SS);
+		swap(p, arr1, NULL, false);
+		swap(p, arr2, NULL, false);
 		return ;
 	}
-	if (print_move)
-		ft_printf("s%c\n", arr1->id);
+	if (addinstr)
+		create_instr(p, SA + (arr1->id == 'b'));
 	if (arr1->size < 2)
 		return ;
 	i_to_swap = arr1->head + 1;
@@ -37,17 +62,17 @@ void	swap(t_array *arr1, t_array *arr2, t_bool print_move)
 }
 
 
-void	rotate(t_array *arr1, t_array *arr2, t_bool print_move)
+void	rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 {
 	if (arr2)
 	{
-		ft_printf("rr\n");
-		rotate(arr1, NULL, print_move);
-		rotate(arr2, NULL, print_move);
+		create_instr(p, RR);
+		rotate(p, arr1, NULL, false);
+		rotate(p, arr2, NULL, false);
 		return ;
 	}
-	if (print_move)
-		ft_printf("r%c\n", arr1->id);
+	if (addinstr)
+		create_instr(p, RA + (arr1->id == 'b'));
 	if (arr1->size < 2)
 		return ;
 	if (arr1->head == arr1->size - 1)
@@ -57,17 +82,17 @@ void	rotate(t_array *arr1, t_array *arr2, t_bool print_move)
 }
 
 
-void	reverse_rotate(t_array *arr1, t_array *arr2, t_bool print_move)
+void	reverse_rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 {
 	if (arr2)
 	{
-		ft_printf("rrr\n");
-		reverse_rotate(arr1, NULL, false);
-		reverse_rotate(arr2, NULL, false);
+		create_instr(p, RRR);
+		reverse_rotate(p, arr1, NULL, false);
+		reverse_rotate(p, arr2, NULL, false);
 		return ;
 	}
-	if (print_move)
-		ft_printf("rr%c\n", arr1->id);
+	if (addinstr)
+		create_instr(p, RRA + (arr1->id == 'b'));
 	if (arr1->size < 2)
 		return ;
 	if (arr1->head == 0)
@@ -76,12 +101,11 @@ void	reverse_rotate(t_array *arr1, t_array *arr2, t_bool print_move)
 		arr1->head -= 1;
 }
 
-void	push(t_array *arr1, t_array *arr2, t_bool print_move)
+void	push(t_push_swap *p, t_array *arr1, t_array *arr2)
 {
 	int	elt;
 
-	if (print_move)
-		ft_printf("p%c\n", arr1->id);
-	elt = ft_array_popint(arr2, arr2->head);
-	ft_array_pushint(arr1, elt);
+	create_instr(p, PA + (arr2->id == 'b'));
+	elt = ft_array_popint(arr1, arr1->head);
+	ft_array_pushint(arr2, elt);
 }

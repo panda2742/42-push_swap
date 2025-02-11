@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 18:28:15 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/11 11:18:19 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,9 @@ static void	_stack_handler(t_push_swap *p)
 		terminate(p, true, EXIT_FAILURE);
 	p->b->size = 0;
 	p->a = ft_array_fill(p->a, p->stack_str, ARRAY_STRING);
-	p->c = ft_array_new('c', p->stack_size, ARRAY_INT);
+	p->c = ft_array_getsorted(p->a, 1);
 	if (!p->c)
 		terminate(p, true, EXIT_FAILURE);
-	p->c = ft_array_getsorted(p->a, 1);
 }
 
 static void	_sort_handler(t_push_swap *p)
@@ -69,7 +68,7 @@ static void	_sort_handler(t_push_swap *p)
 		sort_3(p);
 	else
 		sort_big(p);
-	read_moves_flow(p, true);
+	read_moves_flow(p);
 	if (DEBUG)
-		ft_array_prints(p->a, p->b);
+		ft_array_prints(p->b, p->a);
 }

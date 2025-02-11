@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:58:06 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/10 19:06:22 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/11 11:19:31 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	sort_big(t_push_swap *p)
 {
-	create_instr_flow(p, PB);
-	create_instr(p, PB);
-	create_instr(p, PB);
+	push(p, p->a, p->b);
+	push(p, p->a, p->b);
 }
