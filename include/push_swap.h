@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/11 10:43:34 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/11 16:30:12 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,23 +63,40 @@ typedef struct s_push_swap
 	t_instruction	**instructions;
 }	t_push_swap;
 
-void	display_push_swap(t_push_swap *p);
-t_push_swap	*init(int argc, char **argv);
-void	read_moves_flow(t_push_swap *p);
-char	*move_str(t_move_id move_id);
+void			display_push_swap(t_push_swap *p);
+t_push_swap		*init(int argc, char **argv);
+void			read_moves_flow(t_push_swap *p);
+char			*move_str(t_move_id move_id);
 
-void	swap(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr);
-void	rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr);
-void	reverse_rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr);
-void	push(t_push_swap *p, t_array *arr1, t_array *arr2);
+void			swap(
+					t_push_swap *p,
+					t_array *arr1,
+					t_array *arr2,
+					t_bool addinstr);
+void			rotate(
+					t_push_swap *p,
+					t_array *arr1,
+					t_array *arr2,
+					t_bool addinstr);
+void			reverse_rotate(
+					t_push_swap *p,
+					t_array *arr1,
+					t_array *arr2,
+					t_bool addinstr);
+void			push(t_push_swap *p, t_array *arr1, t_array *arr2);
 
-void	sort_2(t_push_swap *p);
-void	sort_3(t_push_swap *p);
-void	sort_big(t_push_swap *p);
+void			sort_2(t_push_swap *p, t_array *arr);
+void			sort_3(t_push_swap *p);
+void			sort_5(t_push_swap *p);
+void			sort_big(t_push_swap *p);
 
-void	terminate(t_push_swap *p, t_bool exit_program, int exit_status);
+void			terminate(t_push_swap *p, t_bool exit_program, int exit_status);
 t_wall_status	wall(t_push_swap *p);
-
 t_instruction	*create_instr(t_push_swap *p, t_move_id move_id);
+
+int				cost_to_move(t_array *src, t_array *dest, int val);
+int				cost_bring_to_top(t_array *arr, int val);
+int				cost_to_correct_pos(t_array *arr, int val);
+void			jump_to_val(t_push_swap *p, t_array *arr, int val);
 
 #endif

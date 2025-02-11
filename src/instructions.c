@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:13 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/11 11:18:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/11 11:59:30 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	swap(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 	((int *)arr1->data)[i_to_swap] = tmp;
 }
 
-
 void	rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 {
 	if (arr2)
@@ -81,8 +80,8 @@ void	rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 		arr1->head += 1;
 }
 
-
-void	reverse_rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
+void	reverse_rotate(
+	t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 {
 	if (arr2)
 	{

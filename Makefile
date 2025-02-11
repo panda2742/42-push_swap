@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/11 09:30:47 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/11 12:22:05 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME	= push_swap
 MAKE_DIR	:=	.make/
 override	BUILD_DIR	:=	$(MAKE_DIR)$(shell git branch --show-current)/
 override	SRC_DIR		:=	src/
-override	SRCS		:=	debug init main output instructions terminate wall \
-							sort_n_elements sort_big
+override	SRCS		:=	init main output instructions terminate wall \
+							sort_n_elements sort_functions sort_big
 override	SRC			:=	$(addprefix $(SRC_DIR),$(addsuffix .c,$(SRCS)))
 override	OBJ			:=	$(patsubst $(SRC_DIR)%.c,$(BUILD_DIR)%.o,$(SRC))
 override	DEPS		:=	$(patsubst %.o,%.d,$(OBJ))
@@ -50,13 +50,11 @@ $(BUILD_DIR)%.o: $(SRC_DIR)%.c | $(DIRS)
 clean:
 	make -C $(LIBFT) clean
 	$(RM) $(RMFLAGS) $(BUILD_DIR)
-	@echo "$(_RED)× Removed the build files.$(_END)"
 
 .PHONY: fclean
 fclean:
 	make -C $(LIBFT) fclean
 	$(RM) $(RMFLAGS) $(NAME) $(MAKE_DIR)
-	@echo "$(_RED)× Removed the project.$(_END)"
 
 .PHONY : re
 re: fclean
@@ -67,6 +65,11 @@ $(DIRS):
 
 .PHONY : norm
 norm:
-	norminette $(SRC_DIR) include/
+	norminette $(SRC_DIR) include/ libft/
+
+.PHONY : compile
+compile:
+	$(MAKE) all
+	@$(MAKE) clean
 
 -include $(DEPS)
