@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 12:09:58 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 12:18:53 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ void			reverse_rotate(
 					t_bool addinstr);
 void			push(t_push_swap *p, t_array *arr1, t_array *arr2);
 
-void			sort_2(t_push_swap *p, t_array *arr);
-void			sort_3(t_push_swap *p);
-void			sort_5(t_push_swap *p);
+void			sort_2(t_push_swap *p, t_array *src);
+void			sort_3(t_push_swap *p, t_array *src);
+void			sort_5(t_push_swap *p, t_array *src, t_array *dest);
 void			sort_big(t_push_swap *p);
 
 void			terminate(t_push_swap *p, t_bool exit_program, int exit_status);

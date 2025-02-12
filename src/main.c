@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 10:36:08 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 12:19:12 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ static void	_sort_handler(t_push_swap *p)
 	if (p->a->size == 2)
 		sort_2(p, p->a);
 	else if (p->a->size == 3)
-		sort_3(p);
+		sort_3(p, p->a);
 	else if (p->a->size == 5)
-		sort_5(p);
+		sort_5(p, p->a, p->b);
 	else
 		sort_big(p);
 	read_moves_flow(p);
