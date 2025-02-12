@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:58:06 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 14:16:31 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 14:55:13 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	sort_big(t_push_swap *p)
 			ft_array_prints(p->a, p->b);
 		printf("   %d [%d]\n", tab[i_min], cost_to_move(p->b, p->a, tab[i_min]));
 		jump_to_val(p, p->b, tab[i_min]);
+		jump_to_val(p, p->a, ft_array_getval(p->a, p->a->head, cost_to_correct_pos(p->a, tab[i_min])));
 		push(p, p->b, p->a);
-		printf("------------\n");
 	}
 }
 

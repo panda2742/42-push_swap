@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:21:04 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 13:58:49 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 14:59:57 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,16 @@ int	cost_to_correct_pos(t_array *arr, int val)
 {
 	int	i;
 	int	next_greater;
+	int	prev_smaller;
 	int	next_pos;
 
 	i = -1;
 	next_greater = ft_array_getval(arr, arr->head, -1);
 	while (++i < arr->size)
 	{
+		prev_smaller = ft_array_getval(arr, arr->head, i - 1);
 		next_greater = ft_array_getval(arr, arr->head, i);
-		if (next_greater > val)
+		if (next_greater > val && val > prev_smaller)
 			break ;
 	}
 	next_pos = ft_array_getpos(arr, next_greater);
