@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 12:18:53 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 12:52:21 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/include/libft.h"
 
 # ifndef DEBUG
-#  define DEBUG false
+#  define DEBUG true
 # endif
 
 typedef enum e_move_id
@@ -103,8 +103,5 @@ int				cost_to_move(t_array *src, t_array *dest, int val);
 int				cost_bring_to_top(t_array *arr, int val);
 int				cost_to_correct_pos(t_array *arr, int val);
 void			jump_to_val(t_push_swap *p, t_array *arr, int val);
-
-void			push_cheapest(t_push_swap *p, t_array *src, t_array *dst, int start, int end);
-int				closest_to_origin(t_array *arr, int origin, int start, int end);
 
 #endif

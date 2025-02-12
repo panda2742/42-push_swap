@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:21:04 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 12:05:43 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 13:58:49 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	cost_to_move(t_array *src, t_array *dest, int val)
 
 	cost = 1;
 	cost += cost_bring_to_top(src, val);
-	cost += cost_to_correct_pos(dest, val);
+	cost += ft_abs(cost_to_correct_pos(dest, val));
 	return (cost);
 }
 
