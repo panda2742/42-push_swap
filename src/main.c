@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/11 23:04:30 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 10:36:08 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ static void	_sort_handler(t_push_swap *p);
 
 int	main(int argc, char **argv)
 {
-	t_push_swap	*p;
+	t_push_swap	p;
 
-	p = init(argc, argv);
-	if (!p)
-		return (EXIT_FAILURE);
-	_wall_handler(p);
-	_stack_handler(p);
-	_sort_handler(p);
-	terminate(p, false, EXIT_SUCCESS);
+	p.argc = argc;
+	p.argv = argv;
+	p.is_in_stackmem = true;
+	p.wall_status = WALL_OK;
+	p.instructions = NULL;
+	_wall_handler(&p);
+	_stack_handler(&p);
+	_sort_handler(&p);
+	terminate(&p, false, EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
 
