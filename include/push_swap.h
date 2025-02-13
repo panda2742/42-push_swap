@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/13 20:36:51 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 21:07:38 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ typedef struct s_push_swap
 	t_array			*c;
 	t_instruction	**instructions;
 }	t_push_swap;
+
+typedef struct s_instropt
+{
+	int	ma;
+	int	mb;
+}		t_instropt;
 
 void			read_moves_flow(t_push_swap *p);
 char			*move_str(t_move_id move_id);
