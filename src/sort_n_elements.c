@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 00:00:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 12:18:33 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/12 16:30:50 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ void	sort_2(t_push_swap *p, t_array *src)
 
 void	sort_3(t_push_swap *p, t_array *src)
 {
-	int	*atab;
 	int	first;
 	int	second;
 	int	third;
 
-	atab = (int *)src->data;
 	first = ft_array_getval(src, src->head, 0);
 	second = ft_array_getval(src, src->head, 1);
 	third = ft_array_getval(src, src->head, 2);
