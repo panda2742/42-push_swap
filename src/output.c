@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:01:09 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/13 15:30:05 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 18:44:39 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,26 @@ void	read_moves_flow(t_push_swap *p)
 char	*move_str(t_move_id move_id)
 {
 	if (move_id == SA)
-		return "sa";
+		return ("sa");
 	if (move_id == SB)
-		return "sb";
+		return ("sb");
 	if (move_id == SS)
-		return "ss";
+		return ("ss");
 	if (move_id == PA)
-		return "pa";
+		return ("pa");
 	if (move_id == PB)
-		return "pb";
+		return ("pb");
 	if (move_id == RA)
-		return "ra";
+		return ("ra");
 	if (move_id == RB)
-		return "rb";
+		return ("rb");
 	if (move_id == RR)
-		return "rr";
+		return ("rr");
 	if (move_id == RRA)
-		return "rra";
+		return ("rra");
 	if (move_id == RRB)
-		return "rrb";
+		return ("rrb");
 	if (move_id == RRR)
-		return "rrr";
-	return "";
+		return ("rrr");
+	return ("");
 }

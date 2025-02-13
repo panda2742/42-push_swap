@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:21:04 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/13 16:13:05 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 18:41:24 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,10 @@ int	cost_bring_to_top(t_array *arr, int val)
 
 int	correct_head(t_array *arr, int val)
 {
-	int	*tab;
 	int	i;
 	int	correct_head;
 	int	previous;
 
-	tab = ((int *)arr->data);
 	i = -1;
 	while (++i < arr->size)
 	{
