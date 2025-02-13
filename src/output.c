@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:01:09 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/13 18:44:39 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 20:27:49 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	read_moves_flow(t_push_swap *p)
 {
 	t_instruction	*instr;
 
-	return ;
 	instr = p->instructions[0];
 	while (instr)
 	{
