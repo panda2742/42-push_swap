@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:21:04 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 14:59:57 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 16:13:05 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	cost_to_move(t_array *src, t_array *dest, int val)
 {
-	int	cost;
+	int	cost_to_top;
+	int	cost_correct_pos;
 
-	cost = 1;
-	cost += cost_bring_to_top(src, val);
-	cost += ft_abs(cost_to_correct_pos(dest, val));
-	return (cost);
+	cost_to_top = cost_bring_to_top(src, val);
+	cost_correct_pos = ft_abs(cost_to_correct_pos(dest, val));
+	return (cost_to_top + cost_correct_pos);
 }
 
 int	cost_bring_to_top(t_array *arr, int val)
@@ -35,24 +35,37 @@ int	cost_bring_to_top(t_array *arr, int val)
 	return (cost);
 }
 
-int	cost_to_correct_pos(t_array *arr, int val)
+int	correct_head(t_array *arr, int val)
 {
+	int	*tab;
 	int	i;
-	int	next_greater;
-	int	prev_smaller;
-	int	next_pos;
+	int	correct_head;
+	int	previous;
 
+	tab = ((int *)arr->data);
 	i = -1;
-	next_greater = ft_array_getval(arr, arr->head, -1);
 	while (++i < arr->size)
 	{
-		prev_smaller = ft_array_getval(arr, arr->head, i - 1);
-		next_greater = ft_array_getval(arr, arr->head, i);
-		if (next_greater > val && val > prev_smaller)
+		correct_head = ft_array_getval(arr, arr->head, i);
+		previous = ft_array_getval(arr, arr->head, i - 1);
+		if (correct_head < val)
+		{
+			continue ;
+		}
+		else if (previous < val)
+		{
 			break ;
+		}
 	}
-	next_pos = ft_array_getpos(arr, next_greater);
-	return (ft_array_posdist(arr->head, next_pos, arr->size));
+	return (correct_head);
+}
+
+int	cost_to_correct_pos(t_array *arr, int val)
+{
+	int	head;
+
+	head = correct_head(arr, val);
+	return (ft_array_posdist(arr->head, ft_array_getpos(arr, head), arr->size));
 }
 
 void	jump_to_val(t_push_swap *p, t_array *arr, int val)

@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:49 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 16:32:07 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 16:12:19 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_push_swap
 
 typedef struct s_cheapest_elt
 {
-	int	val;
+	int	val; 
 	int	pos;
 	int	dist;
 }		t_cheapest_elt;
@@ -101,6 +101,7 @@ t_instruction	*create_instr(t_push_swap *p, t_move_id move_id);
 
 int				cost_to_move(t_array *src, t_array *dest, int val);
 int				cost_bring_to_top(t_array *arr, int val);
+int				correct_head(t_array *arr, int val);
 int				cost_to_correct_pos(t_array *arr, int val);
 void			jump_to_val(t_push_swap *p, t_array *arr, int val);
 

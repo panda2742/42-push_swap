@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 12:01:09 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/11 09:40:21 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 15:30:05 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	read_moves_flow(t_push_swap *p)
 {
 	t_instruction	*instr;
 
+	return ;
 	instr = p->instructions[0];
 	while (instr)
 	{
@@ -26,12 +27,27 @@ void	read_moves_flow(t_push_swap *p)
 
 char	*move_str(t_move_id move_id)
 {
-	static char	moves_short[8][3] = {
-		"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr"
-	};
-	static char	moves_long[3][4] = {"rra", "rrb", "rrr"};
-
-	if (move_id >= RRA)
-		return (moves_long[move_id - 8]);
-	return (moves_short[move_id]);
+	if (move_id == SA)
+		return "sa";
+	if (move_id == SB)
+		return "sb";
+	if (move_id == SS)
+		return "ss";
+	if (move_id == PA)
+		return "pa";
+	if (move_id == PB)
+		return "pb";
+	if (move_id == RA)
+		return "ra";
+	if (move_id == RB)
+		return "rb";
+	if (move_id == RR)
+		return "rr";
+	if (move_id == RRA)
+		return "rra";
+	if (move_id == RRB)
+		return "rrb";
+	if (move_id == RRR)
+		return "rrr";
+	return "";
 }

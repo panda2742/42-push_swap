@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:13 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/11 11:59:30 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 15:45:39 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	swap(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 		return ;
 	}
 	if (addinstr)
-		create_instr(p, SA + (arr1->id == 'b'));
+		printf("s%c\n", arr1->id);
 	if (arr1->size < 2)
 		return ;
 	i_to_swap = arr1->head + 1;
@@ -71,7 +71,7 @@ void	rotate(t_push_swap *p, t_array *arr1, t_array *arr2, t_bool addinstr)
 		return ;
 	}
 	if (addinstr)
-		create_instr(p, RA + (arr1->id == 'b'));
+		printf("r%c\n", arr1->id);
 	if (arr1->size < 2)
 		return ;
 	if (arr1->head == arr1->size - 1)
@@ -91,7 +91,7 @@ void	reverse_rotate(
 		return ;
 	}
 	if (addinstr)
-		create_instr(p, RRA + (arr1->id == 'b'));
+		printf("rr%c\n", arr1->id);
 	if (arr1->size < 2)
 		return ;
 	if (arr1->head == 0)
@@ -104,7 +104,8 @@ void	push(t_push_swap *p, t_array *arr1, t_array *arr2)
 {
 	int	elt;
 
-	create_instr(p, PA + (arr2->id == 'b'));
+	(void)p;
+	printf("p%c\n", arr2->id);
 	elt = ft_array_popint(arr1, arr1->head);
 	ft_array_pushint(arr2, elt);
 }
