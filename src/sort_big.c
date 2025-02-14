@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:58:06 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/13 20:31:48 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/14 13:53:31 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void	sort_big(t_push_swap *p)
 	sort_3(p, p->a);
 	while (p->b->size)
 	{
-		if (DEBUG)
-			ft_array_prints(p->a, p->b);
 		tab = ((int *)p->b->data);
 		i = -1;
 		cost = 65000;
