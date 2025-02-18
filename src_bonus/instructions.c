@@ -6,11 +6,11 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:04:13 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/18 13:57:46 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/13 20:42:10 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap_bonus.h"
+#include "../include/push_swap.h"
 
 t_instruction	*create_instr(t_push_swap *p, t_move_id move_id)
 {
