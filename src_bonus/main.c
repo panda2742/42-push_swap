@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/18 13:57:50 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/19 16:40:06 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	_wall_handler(t_push_swap *p);
 static void	_stack_handler(t_push_swap *p);
-static void	_sort_handler(t_push_swap *p);
+static void	_read_handler(t_push_swap *p);
 
 int	main(int argc, char **argv)
 {
@@ -24,10 +24,12 @@ int	main(int argc, char **argv)
 	p.argv = argv;
 	p.is_in_stackmem = true;
 	p.wall_status = WALL_OK;
-	p.instructions = NULL;
+	p.a = NULL;
+	p.b = NULL;
+	p.c = NULL;
 	_wall_handler(&p);
 	_stack_handler(&p);
-	_sort_handler(&p);
+	_read_handler(&p);
 	terminate(&p, false, EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
@@ -60,19 +62,26 @@ static void	_stack_handler(t_push_swap *p)
 		terminate(p, true, EXIT_FAILURE);
 }
 
-static void	_sort_handler(t_push_swap *p)
+static void	_read_handler(t_push_swap *p)
 {
-	if (ft_issorted(p->a->data, p->a->size))
-		return ;
-	if (p->a->size == 2)
-		sort_2(p, p->a);
-	else if (p->a->size == 3)
-		sort_3(p, p->a);
-	else if (p->a->size == 5)
-		sort_5(p, p->a, p->b);
+	char	*line;
+	t_bool	instr_is_valid;
+
+	line = get_next_line(0);
+	while (line)
+	{
+		instr_is_valid = valid_push(p, line) | valid_rotate(p, line)
+			| valid_reverse_rotate(p, line) | valid_swap(p, line);
+		if (!instr_is_valid)
+			break ;
+		free(line);
+		line = get_next_line(0);
+	}
+	free(line);
+	if (!instr_is_valid)
+		ft_printf("Error\n");
+	if (ft_issorted(p->a->data, p->a->size) || p->a->size == p->stack_size)
+		ft_printf("OK\n");
 	else
-		sort_big(p);
-	read_moves_flow(p);
-	if (DEBUG)
-		ft_array_prints(p->a, p->b);
+		ft_printf("KO\n");
 }

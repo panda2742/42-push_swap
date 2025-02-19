@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/18 14:35:40 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/19 16:03:31 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ override	OBJ			:=	$(patsubst $(SRC_DIR)%.c,$(BUILD_DIR)%.o,$(SRC))
 
 override	BUILD_DIR_BONUS	:=	$(MAKE_DIR)$(shell git branch --show-current)_checker/
 override	SRC_DIR_BONUS	:=	src_bonus/
-override	SRCS_BONUS		:=	main output instructions terminate wall sort_big \
-								sort_n_elements sort_functions
+override	SRCS_BONUS		:=	exec_instruction main instructions terminate wall
 override	SRC_BONUS		:=	$(addprefix $(SRC_DIR_BONUS),$(addsuffix .c,$(SRCS_BONUS)))
 override	OBJ_BONUS		:=	$(patsubst $(SRC_DIR_BONUS)%.c,$(BUILD_DIR_BONUS)%.o,$(SRC_BONUS))
 

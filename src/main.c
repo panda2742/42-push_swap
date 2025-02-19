@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/12 12:19:12 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/19 16:35:51 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	main(int argc, char **argv)
 	p.is_in_stackmem = true;
 	p.wall_status = WALL_OK;
 	p.instructions = NULL;
+	p.a = NULL;
+	p.b = NULL;
+	p.c = NULL;
 	_wall_handler(&p);
 	_stack_handler(&p);
 	_sort_handler(&p);
