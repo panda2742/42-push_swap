@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:58:06 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/14 13:53:31 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/20 10:43:59 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ static int	_buckets(int stack_size)
 {
 	int	sqrt_size;
 
+	if (stack_size <= 100)
+		return (1);
 	sqrt_size = ft_sqrt(stack_size);
 	if (sqrt_size < 4)
 		return (1);

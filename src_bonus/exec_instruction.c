@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:42:19 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/19 16:39:18 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/20 11:47:18 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ t_bool	valid_push(t_push_swap *p, const char *instr_name)
 		|| instr_name[0] != 'p'
 		|| !ft_isincharset(instr_name[1], "ab"))
 		return (false);
-	if (instr_name[1] == 'a')
+	if (instr_name[1] == 'b')
 		push(p->a, p->b);
-	else if (instr_name[1] == 'b')
+	else if (instr_name[1] == 'a')
 		push(p->b, p->a);
 	return (true);
 }

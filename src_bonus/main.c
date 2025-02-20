@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/19 16:40:06 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/20 17:22:16 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	_read_handler(t_push_swap *p)
 	t_bool	instr_is_valid;
 
 	line = get_next_line(0);
+	instr_is_valid = true;
 	while (line)
 	{
 		instr_is_valid = valid_push(p, line) | valid_rotate(p, line)
