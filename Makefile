@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 18:04:28 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/20 11:40:14 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/20 17:33:57 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,5 +84,34 @@ norm:
 compile:
 	$(MAKE) all
 	@$(MAKE) clean
+
+all_tests: all bonus push_swap_tests bonus_test 
+	@echo "=== PERF TEST === (Thanks to Scros)"
+	@echo ''
+	@./complexity 100 100 700 ./checker_linux
+	@echo ''
+	@./complexity 500 100 5500 ./checker_linux
+	@echo ''
+
+push_swap_tests: all bonus
+	@echo ''
+	@echo "=== PARSING TEST ==="
+	@echo ''
+	@./parsing_check.sh
+	@echo ''
+	@echo "=== LISTS TEST ==="
+	@echo ''
+	@./lists_check.sh
+	@echo 'list used in logs/lists_tested.txt'
+	@echo ''
+
+bonus_test: all bonus
+	@echo "=== Bonus parsing test ==="
+	@echo ''
+	@./bonus_full_check.sh
+		@echo "=== Bonus exec test ==="
+	@echo ''
+	@./exec_tests_bonus.sh
+
 
 -include $(DEPS)

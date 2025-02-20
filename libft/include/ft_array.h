@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 18:37:20 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/13 14:36:39 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/20 17:56:03 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		ft_array_getmax(t_array *arr);
 int		ft_array_getmin(t_array *arr);
 void	ft_array_clear(t_array *arr);
 void	ft_array_prints(t_array *arr1, t_array *arr2);
+t_bool	ft_array_issorted(t_array *arr);
 t_array	*ft_array_getsorted(t_array *arr, t_bool replace_by_index);
 t_array	*ft_array_cpy(t_array *arr);
 t_array	*ft_array_new(char id, int size, t_array_type type);

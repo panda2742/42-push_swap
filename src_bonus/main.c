@@ -6,7 +6,7 @@
 /*   By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:59:51 by ehosta            #+#    #+#             */
-/*   Updated: 2025/02/20 17:22:16 by ehosta           ###   ########.fr       */
+/*   Updated: 2025/02/20 17:59:14 by ehosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ static void	_read_handler(t_push_swap *p)
 	}
 	free(line);
 	if (!instr_is_valid)
-		ft_printf("Error\n");
-	if (ft_issorted(p->a->data, p->a->size) || p->a->size == p->stack_size)
+		return ((void)ft_printf("Error\n"));
+	if (ft_array_issorted(p->a) && p->a->size == p->stack_size)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

@@ -6,7 +6,7 @@
 #    By: ehosta <ehosta@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 14:44:31 by ehosta            #+#    #+#              #
-#    Updated: 2025/02/19 16:11:25 by ehosta           ###   ########.fr        #
+#    Updated: 2025/02/20 17:56:21 by ehosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ override	SRC_ARRAY	:=	ft_array_clear \
 							ft_array_getpos \
 							ft_array_getsorted \
 							ft_array_getval \
+							ft_array_issorted \
 							ft_array_new \
 							ft_array_popint \
 							ft_array_posdist \
