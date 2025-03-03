@@ -1,6 +1,6 @@
 # push_swap
 
-Let's sort some stacks, with a precise set of instructions. Be careful, you have to do less operations possible.
+Sort two stacks with limited operations: <code>sa</code>, <code>sb</code>, <code>ss</code>, <code>pa</code>, <code>pb</code>, <code>ra</code>, <code>rb</code>, <code>rr</code>, <code>rra</code>, <code>rrb</code>, <code>rrr</code>. Do it as cheap as possible.
 
 | Project | push_swap                  |
 |:--------|---------------------------:|
